@@ -1,1 +1,0 @@
-# knetikcloud-clojure-client

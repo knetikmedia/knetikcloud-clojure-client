@@ -1,0 +1,48 @@
+(ns knetik-platform-api-documentation-latest
+.api.reporting-challenges
+  (:require [knetik-platform-api-documentation-latest
+.core :refer [call-api check-required-params with-collection-format]])
+  (:import (java.io File)))
+
+(defn get-challenge-event-leaderboard-with-http-info
+  "Retrieve a challenge event leaderboard details
+  Lists all leaderboard entries with additional user details"
+  ([] (get-challenge-event-leaderboard-with-http-info nil))
+  ([{:keys [filter-event ]}]
+   (call-api "/reporting/events/leaderboard" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"filter_event" filter-event }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["OAuth2"]})))
+
+(defn get-challenge-event-leaderboard
+  "Retrieve a challenge event leaderboard details
+  Lists all leaderboard entries with additional user details"
+  ([] (get-challenge-event-leaderboard nil))
+  ([optional-params]
+   (:data (get-challenge-event-leaderboard-with-http-info optional-params))))
+
+(defn get-challenge-event-participants-with-http-info
+  "Retrieve a challenge event participant details
+  Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation"
+  ([] (get-challenge-event-participants-with-http-info nil))
+  ([{:keys [filter-event ]}]
+   (call-api "/reporting/events/participants" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"filter_event" filter-event }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["OAuth2"]})))
+
+(defn get-challenge-event-participants
+  "Retrieve a challenge event participant details
+  Lists all user submitted scores sorted by value, including those that do not apear in the leaderboard due to value or aggregation"
+  ([] (get-challenge-event-participants nil))
+  ([optional-params]
+   (:data (get-challenge-event-participants-with-http-info optional-params))))
+

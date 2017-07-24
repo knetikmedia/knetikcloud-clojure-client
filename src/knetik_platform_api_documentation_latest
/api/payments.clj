@@ -61,11 +61,11 @@
 (defn get-payment-methods-with-http-info
   "Get all payment methods for a user"
   ([user-id ] (get-payment-methods-with-http-info user-id nil))
-  ([user-id {:keys [size page order ]}]
+  ([user-id {:keys [filter-name filter-payment-type filter-payment-method-type-id filter-payment-method-type-name size page order ]}]
    (call-api "/users/{user_id}/payment-methods" :get
              {:path-params   {"user_id" user-id }
               :header-params {}
-              :query-params  {"size" size "page" page "order" order }
+              :query-params  {"filter_name" filter-name "filter_payment_type" filter-payment-type "filter_payment_method_type_id" filter-payment-method-type-id "filter_payment_method_type_name" filter-payment-method-type-name "size" size "page" page "order" order }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

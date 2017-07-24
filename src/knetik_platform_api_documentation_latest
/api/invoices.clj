@@ -137,6 +137,26 @@
   ([id optional-params]
    (:data (pay-invoice-with-http-info id optional-params))))
 
+(defn set-bundled-invoice-item-fulfillment-status-with-http-info
+  "Set the fulfillment status of a bundled invoice item
+  This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which."
+  [id bundle-sku sku status ]
+  (call-api "/invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status" :put
+            {:path-params   {"id" id "bundleSku" bundle-sku "sku" sku }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    status
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["OAuth2"]}))
+
+(defn set-bundled-invoice-item-fulfillment-status
+  "Set the fulfillment status of a bundled invoice item
+  This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which."
+  [id bundle-sku sku status ]
+  (:data (set-bundled-invoice-item-fulfillment-status-with-http-info id bundle-sku sku status)))
+
 (defn set-external-ref-with-http-info
   "Set the external reference of an invoice"
   ([id ] (set-external-ref-with-http-info id nil))

@@ -138,3 +138,25 @@
   ([user-id inventory-id optional-params]
    (:data (set-user-subscription-plan-with-http-info user-id inventory-id optional-params))))
 
+(defn set-user-subscription-price-with-http-info
+  "Set a new subscription price for a user
+  This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint."
+  ([user-id inventory-id ] (set-user-subscription-price-with-http-info user-id inventory-id nil))
+  ([user-id inventory-id {:keys [theoverridedetails ]}]
+   (call-api "/users/{user_id}/subscriptions/{inventory_id}/price-override" :put
+             {:path-params   {"user_id" user-id "inventory_id" inventory-id }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    theoverridedetails
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["OAuth2"]})))
+
+(defn set-user-subscription-price
+  "Set a new subscription price for a user
+  This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint."
+  ([user-id inventory-id ] (set-user-subscription-price user-id inventory-id nil))
+  ([user-id inventory-id optional-params]
+   (:data (set-user-subscription-price-with-http-info user-id inventory-id optional-params))))
+

@@ -108,10 +108,11 @@
   (:data (delete-challenge-with-http-info id)))
 
 (defn delete-challenge-activity-with-http-info
-  "Delete a challenge activity"
-  [activity-id challenge-id ]
-  (call-api "/challenges/{challenge_id}/activities/{activity_id}" :delete
-            {:path-params   {"activity_id" activity-id "challenge_id" challenge-id }
+  "Delete a challenge activity
+  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
+  [id challenge-id ]
+  (call-api "/challenges/{challenge_id}/activities/{id}" :delete
+            {:path-params   {"id" id "challenge_id" challenge-id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -120,9 +121,10 @@
              :auth-names    ["OAuth2"]}))
 
 (defn delete-challenge-activity
-  "Delete a challenge activity"
-  [activity-id challenge-id ]
-  (:data (delete-challenge-activity-with-http-info activity-id challenge-id)))
+  "Delete a challenge activity
+  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
+  [id challenge-id ]
+  (:data (delete-challenge-activity-with-http-info id challenge-id)))
 
 (defn delete-challenge-activity-template-with-http-info
   "Delete a challenge activity template
@@ -220,10 +222,11 @@
    (:data (get-challenge-activities-with-http-info challenge-id optional-params))))
 
 (defn get-challenge-activity-with-http-info
-  "Get a single challenge activity"
-  [activity-id ]
-  (call-api "/challenges/{challenge_id}/activities/{activity_id}" :get
-            {:path-params   {"activity_id" activity-id }
+  "Get a single challenge activity
+  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
+  [id challenge-id ]
+  (call-api "/challenges/{challenge_id}/activities/{id}" :get
+            {:path-params   {"id" id "challenge_id" challenge-id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -232,9 +235,10 @@
              :auth-names    []}))
 
 (defn get-challenge-activity
-  "Get a single challenge activity"
-  [activity-id ]
-  (:data (get-challenge-activity-with-http-info activity-id)))
+  "Get a single challenge activity
+  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
+  [id challenge-id ]
+  (:data (get-challenge-activity-with-http-info id challenge-id)))
 
 (defn get-challenge-activity-template-with-http-info
   "Get a single challenge activity template"
@@ -386,11 +390,12 @@
    (:data (update-challenge-with-http-info id optional-params))))
 
 (defn update-challenge-activity-with-http-info
-  "Update a challenge activity"
-  ([activity-id challenge-id ] (update-challenge-activity-with-http-info activity-id challenge-id nil))
-  ([activity-id challenge-id {:keys [challenge-activity-resource ]}]
-   (call-api "/challenges/{challenge_id}/activities/{activity_id}" :put
-             {:path-params   {"activity_id" activity-id "challenge_id" challenge-id }
+  "Update a challenge activity
+  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
+  ([id challenge-id ] (update-challenge-activity-with-http-info id challenge-id nil))
+  ([id challenge-id {:keys [challenge-activity-resource ]}]
+   (call-api "/challenges/{challenge_id}/activities/{id}" :put
+             {:path-params   {"id" id "challenge_id" challenge-id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -400,10 +405,11 @@
               :auth-names    ["OAuth2"]})))
 
 (defn update-challenge-activity
-  "Update a challenge activity"
-  ([activity-id challenge-id ] (update-challenge-activity activity-id challenge-id nil))
-  ([activity-id challenge-id optional-params]
-   (:data (update-challenge-activity-with-http-info activity-id challenge-id optional-params))))
+  "Update a challenge activity
+  A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
+  ([id challenge-id ] (update-challenge-activity id challenge-id nil))
+  ([id challenge-id optional-params]
+   (:data (update-challenge-activity-with-http-info id challenge-id optional-params))))
 
 (defn update-challenge-activity-template-with-http-info
   "Update an challenge activity template"

@@ -196,6 +196,28 @@
   ([optional-params]
    (:data (get-store-items-with-http-info optional-params))))
 
+(defn quick-buy-with-http-info
+  "One-step purchase and pay for a single SKU item from a user's wallet
+  Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted"
+  ([] (quick-buy-with-http-info nil))
+  ([{:keys [quick-buy-request ]}]
+   (call-api "/store/quick-buy" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    quick-buy-request
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["OAuth2"]})))
+
+(defn quick-buy
+  "One-step purchase and pay for a single SKU item from a user's wallet
+  Used to create and automatically pay an invoice for a single unit of a single SKU from a user's wallet. SKU must be priced in virtual currency and must not be an item that requires shipping. PAYMENTS_ADMIN permission is required if user ID is specified and is not the ID of the currently logged in user. If invoice price does not match expected price, purchase is aborted"
+  ([] (quick-buy nil))
+  ([optional-params]
+   (:data (quick-buy-with-http-info optional-params))))
+
 (defn update-item-template-with-http-info
   "Update an item template"
   ([id ] (update-item-template-with-http-info id nil))

@@ -118,7 +118,7 @@
   (:data (get-payment-statuses-with-http-info)))
 
 (defn pay-invoice-with-http-info
-  "Trigger payment of an invoice"
+  "Pay an invoice using a saved payment method"
   ([id ] (pay-invoice-with-http-info id nil))
   ([id {:keys [request ]}]
    (call-api "/invoices/{id}/payments" :post
@@ -132,7 +132,7 @@
               :auth-names    ["OAuth2"]})))
 
 (defn pay-invoice
-  "Trigger payment of an invoice"
+  "Pay an invoice using a saved payment method"
   ([id ] (pay-invoice id nil))
   ([id optional-params]
    (:data (pay-invoice-with-http-info id optional-params))))

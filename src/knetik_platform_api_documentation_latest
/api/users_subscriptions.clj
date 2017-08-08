@@ -100,7 +100,7 @@
 
 (defn set-subscription-status-with-http-info
   "Set the status of a subscription
-  The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases"
+  Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases"
   [user-id inventory-id status ]
   (call-api "/users/{user_id}/subscriptions/{inventory_id}/status" :put
             {:path-params   {"user_id" user-id "inventory_id" inventory-id }
@@ -114,7 +114,7 @@
 
 (defn set-subscription-status
   "Set the status of a subscription
-  The body is a json string (put in quotes) that should match a desired invoice status type. Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases"
+  Note that the new status may be blocked if the system is not configured to allow the current status to be changed to the new, to enforce proper flow. The default options for statuses are shown below but may be altered for special use cases"
   [user-id inventory-id status ]
   (:data (set-subscription-status-with-http-info user-id inventory-id status)))
 

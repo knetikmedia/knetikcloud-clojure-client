@@ -80,11 +80,11 @@
 (defn get-roles-with-http-info
   "List and search roles"
   ([] (get-roles-with-http-info nil))
-  ([{:keys [size page order ]}]
+  ([{:keys [filter-name filter-role size page order ]}]
    (call-api "/auth/roles" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"size" size "page" page "order" order }
+              :query-params  {"filter_name" filter-name "filter_role" filter-role "size" size "page" page "order" order }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

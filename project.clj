@@ -1,6 +1,5 @@
 (defproject knetik-platform-api-documentation-latest
- "latest
-"
+ "3.0.7"
   :description "This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com."
   :url "http://www.knetik.com"
   :dependencies [[org.clojure/clojure "1.7.0"]

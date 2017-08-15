@@ -7,12 +7,12 @@
 (defn get-o-auth-token-with-http-info
   "Get access token"
   ([grant-type client-id ] (get-o-auth-token-with-http-info grant-type client-id nil))
-  ([grant-type client-id {:keys [client-secret username password ]}]
+  ([grant-type client-id {:keys [client-secret username password token refresh-token ]}]
    (call-api "/oauth/token" :post
              {:path-params   {}
               :header-params {}
               :query-params  {}
-              :form-params   {"grant_type" grant-type "client_id" client-id "client_secret" client-secret "username" username "password" password }
+              :form-params   {"grant_type" grant-type "client_id" client-id "client_secret" client-secret "username" username "password" password "token" token "refresh_token" refresh-token }
               :content-types ["application/x-www-form-urlencoded"]
               :accepts       ["application/json"]
               :auth-names    []})))

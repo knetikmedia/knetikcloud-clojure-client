@@ -14,7 +14,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-user-wallet
   "Returns the user's wallet for the given currency code"
@@ -32,7 +32,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-user-wallet-transactions
   "Retrieve a user's wallet transactions"
@@ -50,7 +50,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-user-wallets
   "List all of a user's wallets"
@@ -67,7 +67,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-wallet-balances
   "Retrieves a summation of wallet balances by currency code"
@@ -85,7 +85,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-wallet-transactions
   "Retrieve wallet transactions across the system"
@@ -104,7 +104,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-wallets
   "Retrieve a list of wallets across the system"
@@ -124,7 +124,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-wallet-balance
   "Updates the balance for a user's wallet"

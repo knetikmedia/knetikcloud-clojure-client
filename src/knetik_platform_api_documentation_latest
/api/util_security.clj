@@ -16,7 +16,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-user-location-log
   "Returns the authentication log for a user
@@ -35,7 +35,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-user-token-details
   "Returns the authentication token details. Use /users endpoint for detailed user's info"

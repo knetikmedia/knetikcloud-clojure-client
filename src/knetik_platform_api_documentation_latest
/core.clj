@@ -9,7 +9,8 @@
            (java.text SimpleDateFormat)))
 
 (def auth-definitions
-  {"OAuth2" {:type :oauth2}})
+  {"oauth2_client_credentials_grant" {:type :oauth2}
+   "oauth2_password_grant" {:type :oauth2}})
 
 (def default-api-context
   "Default API context."
@@ -17,7 +18,8 @@
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :debug           false
-   :auths           {"OAuth2" nil}})
+   :auths           {"oauth2_client_credentials_grant" nil
+                     "oauth2_password_grant" nil}})
 
 (def ^:dynamic *api-context*
   "Dynamic API context to be applied in API calls."

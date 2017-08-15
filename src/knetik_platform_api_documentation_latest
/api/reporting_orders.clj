@@ -15,7 +15,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-invoice-reports
   "Retrieve invoice counts aggregated by time ranges"

@@ -17,7 +17,7 @@
               :body-param    object
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-search-index
   "Add a new object to an index
@@ -39,7 +39,7 @@
               :body-param    mappings
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-search-mappings
   "Register reference mappings
@@ -59,7 +59,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-search-index
   "Delete an object
@@ -78,7 +78,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-search-indexes
   "Delete all objects in an index

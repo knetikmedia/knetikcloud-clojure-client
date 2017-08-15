@@ -17,7 +17,7 @@
               :body-param    user-inventory-add-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-item-to-user-inventory
   "Adds an item to the user inventory
@@ -38,7 +38,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn check-user-entitlement-item
   "Check for access to an item without consuming
@@ -59,7 +59,7 @@
               :body-param    entitlement-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-entitlement-item
   "Create an entitlement item"
@@ -80,7 +80,7 @@
               :body-param    template
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-entitlement-template
   "Create an entitlement template
@@ -99,7 +99,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-entitlement-item
   "Delete an entitlement item"
@@ -118,7 +118,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-entitlement-template
   "Delete an entitlement template
@@ -173,7 +173,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-entitlement-template
   "Get a single entitlement template"
@@ -191,7 +191,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-entitlement-templates
   "List and search entitlement templates"
@@ -210,7 +210,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-user-inventories
   "List the user inventory entries for a given user"
@@ -228,7 +228,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-user-inventory
   "Get an inventory entry"
@@ -246,7 +246,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-user-inventory-log
   "List the log entries for this inventory entry"
@@ -265,7 +265,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-users-inventory
   "List the user inventory entries for all users"
@@ -284,7 +284,7 @@
              :body-param    grant-request
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn grant-user-entitlement
   "Grant an entitlement"
@@ -303,7 +303,7 @@
               :body-param    entitlement-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-entitlement-item
   "Update an entitlement item"
@@ -323,7 +323,7 @@
               :body-param    template
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-entitlement-template
   "Update an entitlement template"
@@ -343,7 +343,7 @@
               :body-param    data
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-user-inventory-behavior-data
   "Set the behavior data for an inventory entry"
@@ -364,7 +364,7 @@
               :body-param    timestamp
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-user-inventory-expires
   "Set the expiration date
@@ -385,7 +385,7 @@
               :body-param    inventory-status
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-user-inventory-status
   "Set the status for an inventory entry"
@@ -404,7 +404,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn use-user-entitlement-item
   "Use an item"

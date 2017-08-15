@@ -17,7 +17,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn silent-post-optimal
   "Initiate silent post with Optimal

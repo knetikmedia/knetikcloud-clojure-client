@@ -17,7 +17,7 @@
               :body-param    bre-global-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-bre-global
   "Create a global definition
@@ -37,7 +37,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-bre-global
   "Delete a global
@@ -55,7 +55,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-bre-global
   "Get a single global definition"
@@ -73,7 +73,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-bre-globals
   "List global definitions"
@@ -94,7 +94,7 @@
               :body-param    bre-global-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-bre-global
   "Update a global definition

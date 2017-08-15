@@ -16,7 +16,7 @@
               :body-param    comment-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-comment
   "Add a new comment"
@@ -34,7 +34,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-comment
   "Delete a comment"
@@ -111,7 +111,7 @@
               :body-param    content
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-comment
   "Update a comment"

@@ -16,7 +16,7 @@
               :body-param    raw-email-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn send-raw-email
   "Send a raw email to one or more users"
@@ -37,7 +37,7 @@
               :body-param    raw-sms-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn send-raw-sms
   "Send a raw SMS
@@ -58,7 +58,7 @@
               :body-param    message-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn send-templated-email
   "Send a templated email to one or more users"
@@ -79,7 +79,7 @@
               :body-param    template-sms-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn send-templated-sms
   "Send a new templated SMS

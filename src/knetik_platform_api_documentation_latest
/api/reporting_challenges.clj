@@ -16,7 +16,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-challenge-event-leaderboard
   "Retrieve a challenge event leaderboard details
@@ -37,7 +37,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-challenge-event-participants
   "Retrieve a challenge event participant details

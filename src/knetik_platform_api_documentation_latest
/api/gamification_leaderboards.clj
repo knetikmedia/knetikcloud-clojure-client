@@ -36,7 +36,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-leaderboard-rank
   "Retrieves a specific user entry with rank

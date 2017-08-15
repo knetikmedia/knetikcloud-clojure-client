@@ -16,7 +16,7 @@
               :body-param    subscription-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-subscription
   "Creates a subscription item and associated plans"
@@ -37,7 +37,7 @@
               :body-param    subscription-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-subscription-template
   "Create a subscription template
@@ -57,7 +57,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-subscription
   "Delete a subscription plan
@@ -76,7 +76,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-subscription-template
   "Delete a subscription template"
@@ -112,7 +112,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-subscription-template
   "Get a single subscription template
@@ -131,7 +131,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-subscription-templates
   "List and search subscription templates"
@@ -168,7 +168,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn process-subscriptions
   "Processes subscriptions and charge dues"
@@ -188,7 +188,7 @@
               :body-param    subscription-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-subscription
   "Updates a subscription item and associated plans
@@ -209,7 +209,7 @@
               :body-param    subscription-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-subscription-template
   "Update a subscription template"

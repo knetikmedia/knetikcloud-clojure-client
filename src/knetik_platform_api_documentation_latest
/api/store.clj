@@ -17,7 +17,7 @@
               :body-param    item-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-item-template
   "Create an item template
@@ -39,7 +39,7 @@
               :body-param    store-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-store-item
   "Create a store item
@@ -59,7 +59,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-item-template
   "Delete an item template"
@@ -77,7 +77,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-store-item
   "Delete a store item"
@@ -94,7 +94,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-behaviors
   "List available item behaviors"
@@ -112,7 +112,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-item-template
   "Get a single item template
@@ -131,7 +131,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-item-templates
   "List and search item templates"
@@ -209,7 +209,7 @@
               :body-param    quick-buy-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn quick-buy
   "One-step purchase and pay for a single SKU item from a user's wallet
@@ -230,7 +230,7 @@
               :body-param    item-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-item-template
   "Update an item template"
@@ -250,7 +250,7 @@
               :body-param    store-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-store-item
   "Update a store item"

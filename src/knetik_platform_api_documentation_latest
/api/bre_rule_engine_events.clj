@@ -17,7 +17,7 @@
               :body-param    bre-event
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn send-bre-event
   "Fire a new event, based on an existing trigger

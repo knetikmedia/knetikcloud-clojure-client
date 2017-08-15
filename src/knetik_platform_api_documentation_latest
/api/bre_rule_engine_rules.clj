@@ -17,7 +17,7 @@
               :body-param    bre-rule
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-bre-rule
   "Create a rule
@@ -37,7 +37,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-bre-rule
   "Delete a rule
@@ -57,7 +57,7 @@
               :body-param    expression
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-bre-expression-as-string
   "Returns a string representation of the provided expression"
@@ -75,7 +75,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-bre-rule
   "Get a single rule"
@@ -93,7 +93,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-bre-rules
   "List rules"
@@ -114,7 +114,7 @@
               :body-param    enabled
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-bre-rule
   "Enable or disable a rule
@@ -136,7 +136,7 @@
               :body-param    bre-rule
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-bre-rule
   "Update a rule

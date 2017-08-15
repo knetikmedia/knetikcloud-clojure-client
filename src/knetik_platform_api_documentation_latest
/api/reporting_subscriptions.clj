@@ -15,7 +15,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-subscription-reports
   "Get a list of available subscription reports in most recent first order"

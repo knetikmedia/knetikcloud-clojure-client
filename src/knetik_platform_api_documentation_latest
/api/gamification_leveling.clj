@@ -16,7 +16,7 @@
               :body-param    level
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-level
   "Create a level schema"
@@ -34,7 +34,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-level
   "Delete a level"
@@ -51,7 +51,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-level
   "Retrieve a level"
@@ -68,7 +68,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-level-triggers
   "Get the list of triggers that can be used to trigger a leveling progress update"
@@ -87,7 +87,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-levels
   "List and search levels
@@ -106,7 +106,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-user-level
   "Get a user's progress for a given level schema"
@@ -125,7 +125,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-user-levels
   "Get a user's progress for all level schemas
@@ -147,7 +147,7 @@
               :body-param    progress
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn increment-progress
   "Update or create a leveling progress record for a user
@@ -169,7 +169,7 @@
               :body-param    progress
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-progress
   "Set leveling progress for a user
@@ -190,7 +190,7 @@
               :body-param    new-level
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-level
   "Update a level"

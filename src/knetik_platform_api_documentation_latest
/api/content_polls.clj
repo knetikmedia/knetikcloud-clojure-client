@@ -16,7 +16,7 @@
               :body-param    answer-key
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn answer-poll
   "Add your vote to a poll"
@@ -37,7 +37,7 @@
               :body-param    poll-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-poll
   "Create a new poll
@@ -59,7 +59,7 @@
               :body-param    poll-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-poll-template
   "Create a poll template
@@ -78,7 +78,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-poll
   "Delete an existing poll"
@@ -97,7 +97,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-poll-template
   "Delete a poll template
@@ -133,7 +133,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-poll-answer
   "Get poll answer"
@@ -150,7 +150,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-poll-template
   "Get a single poll template"
@@ -168,7 +168,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-poll-templates
   "List and search poll templates"
@@ -209,7 +209,7 @@
               :body-param    poll-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-poll
   "Update an existing poll"
@@ -229,7 +229,7 @@
               :body-param    poll-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-poll-template
   "Update a poll template"

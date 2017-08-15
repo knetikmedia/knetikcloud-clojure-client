@@ -16,7 +16,7 @@
               :body-param    currency
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-currency
   "Create a currency"
@@ -34,7 +34,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-currency
   "Delete a currency"
@@ -89,7 +89,7 @@
               :body-param    currency
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-currency
   "Update a currency"

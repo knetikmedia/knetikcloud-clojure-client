@@ -16,7 +16,7 @@
               :body-param    reward-set-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-reward-set
   "Create a reward set"
@@ -34,7 +34,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-reward-set
   "Delete a reward set"
@@ -89,7 +89,7 @@
               :body-param    reward-set-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-reward-set
   "Update a reward set"

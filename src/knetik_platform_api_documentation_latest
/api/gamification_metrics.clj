@@ -17,7 +17,7 @@
               :body-param    metric
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-metric
   "Add a metric

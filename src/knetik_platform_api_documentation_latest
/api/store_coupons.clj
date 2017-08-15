@@ -17,7 +17,7 @@
               :body-param    coupon-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-coupon-item
   "Create a coupon item
@@ -39,7 +39,7 @@
               :body-param    coupon-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-coupon-template
   "Create a coupon template
@@ -58,7 +58,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-coupon-item
   "Delete a coupon item"
@@ -76,7 +76,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-coupon-template
   "Delete a coupon template"
@@ -94,7 +94,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-coupon-item
   "Get a single coupon item"
@@ -112,7 +112,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-coupon-template
   "Get a single coupon template
@@ -131,7 +131,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-coupon-templates
   "List and search coupon templates"
@@ -151,7 +151,7 @@
               :body-param    coupon-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-coupon-item
   "Update a coupon item"
@@ -171,7 +171,7 @@
               :body-param    coupon-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-coupon-template
   "Update a coupon template"

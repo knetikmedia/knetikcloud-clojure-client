@@ -16,7 +16,7 @@
               :body-param    type
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-fulfillment-type
   "Create a fulfillment type"
@@ -34,7 +34,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-fulfillment-type
   "Delete a fulfillment type"
@@ -89,7 +89,7 @@
               :body-param    fulfillment-type
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-fulfillment-type
   "Update a fulfillment type"

@@ -17,7 +17,7 @@
               :body-param    article-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-article
   "Create a new article
@@ -39,7 +39,7 @@
               :body-param    article-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-article-template
   "Create an article template
@@ -58,7 +58,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-article
   "Delete an existing article"
@@ -77,7 +77,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-article-template
   "Delete an article template
@@ -113,7 +113,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-article-template
   "Get a single article template"
@@ -131,7 +131,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-article-templates
   "List and search article templates"
@@ -143,11 +143,11 @@
   "List and search articles
   Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use 'Get a single article' to retrieve the full resource with assets for a given item as needed."
   ([] (get-articles-with-http-info nil))
-  ([{:keys [filter-category filter-tagset filter-tag-intersection filter-tag-exclusion filter-title size page order ]}]
+  ([{:keys [filter-active-only filter-category filter-tagset filter-tag-intersection filter-tag-exclusion filter-title size page order ]}]
    (call-api "/content/articles" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"filter_category" filter-category "filter_tagset" filter-tagset "filter_tag_intersection" filter-tag-intersection "filter_tag_exclusion" filter-tag-exclusion "filter_title" filter-title "size" size "page" page "order" order }
+              :query-params  {"filter_active_only" filter-active-only "filter_category" filter-category "filter_tagset" filter-tagset "filter_tag_intersection" filter-tag-intersection "filter_tag_exclusion" filter-tag-exclusion "filter_title" filter-title "size" size "page" page "order" order }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
@@ -172,7 +172,7 @@
               :body-param    article-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-article
   "Update an existing article"
@@ -192,7 +192,7 @@
               :body-param    article-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-article-template
   "Update an article template"

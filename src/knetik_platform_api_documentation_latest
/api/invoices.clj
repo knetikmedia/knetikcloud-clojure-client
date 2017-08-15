@@ -17,7 +17,7 @@
               :body-param    req
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-invoice
   "Create an invoice
@@ -53,7 +53,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-invoice
   "Retrieve an invoice"
@@ -71,7 +71,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-invoice-logs
   "List invoice logs"
@@ -91,7 +91,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-invoices
   "Retrieve invoices
@@ -129,7 +129,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn pay-invoice
   "Pay an invoice using a saved payment method"
@@ -149,7 +149,7 @@
              :body-param    status
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn set-bundled-invoice-item-fulfillment-status
   "Set the fulfillment status of a bundled invoice item
@@ -169,7 +169,7 @@
               :body-param    external-ref
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-external-ref
   "Set the external reference of an invoice"
@@ -189,7 +189,7 @@
              :body-param    status
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn set-invoice-item-fulfillment-status
   "Set the fulfillment status of an invoice item
@@ -209,7 +209,7 @@
               :body-param    order-notes
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-order-notes
   "Set the order notes of an invoice"
@@ -230,7 +230,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-payment-status
   "Set the payment status of an invoice
@@ -251,7 +251,7 @@
               :body-param    billing-info-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-billing-info
   "Set or update billing info"

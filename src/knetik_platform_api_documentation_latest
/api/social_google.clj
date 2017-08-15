@@ -17,7 +17,7 @@
               :body-param    google-token
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn link-accounts1
   "Link google account

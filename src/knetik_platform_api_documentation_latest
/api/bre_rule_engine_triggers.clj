@@ -17,7 +17,7 @@
               :body-param    bre-trigger-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-bre-trigger
   "Create a trigger
@@ -37,7 +37,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-bre-trigger
   "Delete a trigger
@@ -55,7 +55,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-bre-trigger
   "Get a single trigger"
@@ -73,7 +73,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-bre-triggers
   "List triggers"
@@ -94,7 +94,7 @@
               :body-param    bre-trigger-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-bre-trigger
   "Update a trigger

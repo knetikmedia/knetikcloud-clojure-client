@@ -17,7 +17,7 @@
               :body-param    facebook-token
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn link-accounts
   "Link facebook account

@@ -16,7 +16,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-xsolla-token-url
   "Create a payment token that should be used to forward the user to Xsolla so they can complete payment"

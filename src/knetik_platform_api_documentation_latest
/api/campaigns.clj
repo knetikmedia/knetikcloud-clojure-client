@@ -16,7 +16,7 @@
               :body-param    challenge-id
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-challenge-to-campaign
   "Add a challenge to a campaign"
@@ -36,7 +36,7 @@
               :body-param    campaign-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-campaign
   "Create a campaign"
@@ -57,7 +57,7 @@
               :body-param    campaign-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-campaign-template
   "Create a campaign template
@@ -76,7 +76,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-campaign
   "Delete a campaign"
@@ -95,7 +95,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-campaign-template
   "Delete a campaign template
@@ -150,7 +150,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-campaign-template
   "Get a single campaign template"
@@ -168,7 +168,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-campaign-templates
   "List and search campaign templates"
@@ -205,7 +205,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn remove-challenge-from-campaign
   "Remove a challenge from a campaign"
@@ -224,7 +224,7 @@
               :body-param    campaign-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-campaign
   "Update a campaign"
@@ -244,7 +244,7 @@
               :body-param    campaign-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-campaign-template
   "Update an campaign template"

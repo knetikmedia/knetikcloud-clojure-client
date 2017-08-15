@@ -16,7 +16,7 @@
               :body-param    custom-discount
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-custom-discount
   "Adds a custom discount to the cart"
@@ -36,7 +36,7 @@
               :body-param    sku-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-discount-to-cart
   "Adds a discount coupon to the cart"
@@ -57,7 +57,7 @@
               :body-param    cart-item-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-item-to-cart
   "Add an item to the cart
@@ -78,7 +78,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-cart
   "Create a cart
@@ -97,7 +97,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-cart
   "Returns the cart with the given GUID"
@@ -115,7 +115,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-carts
   "Get a list of carts"
@@ -133,7 +133,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-shippable
   "Returns whether a cart requires shipping"
@@ -151,7 +151,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-shipping-countries
   "Get the list of available shipping countries per vendor
@@ -169,7 +169,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn remove-discount-from-cart
   "Removes a discount coupon from the cart"
@@ -189,7 +189,7 @@
               :body-param    currency-code
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-cart-currency
   "Sets the currency to use for the cart
@@ -210,7 +210,7 @@
               :body-param    user-id
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-cart-owner
   "Sets the owner of a cart if none is set already"
@@ -231,7 +231,7 @@
               :body-param    cart-item-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-item-in-cart
   "Changes the quantity of an item already in the cart
@@ -252,7 +252,7 @@
               :body-param    cart-shipping-address-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-shipping-address
   "Modifies or sets the order shipping address"

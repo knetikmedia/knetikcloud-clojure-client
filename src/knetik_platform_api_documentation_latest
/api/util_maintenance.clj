@@ -14,7 +14,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-maintenance
   "Delete maintenance info"
@@ -52,7 +52,7 @@
               :body-param    maintenance
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn set-maintenance
   "Set current maintenance info"
@@ -72,7 +72,7 @@
               :body-param    maintenance
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-maintenance
   "Update current maintenance info"

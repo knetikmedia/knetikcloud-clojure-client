@@ -17,7 +17,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-or-update-fatt-merchant-payment-method
   "Create or update a FattMerchant payment method for a user

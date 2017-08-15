@@ -17,7 +17,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-pay-pal-billing-agreement-url
   "Create a PayPal Classic billing agreement for the user
@@ -39,7 +39,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-pay-pal-express-checkout
   "Create a payment token for PayPal express checkout
@@ -61,7 +61,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn finalize-pay-pal-billing-agreement
   "Finalizes a billing agreement after the user has accepted through PayPal
@@ -83,7 +83,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn finalize-pay-pal-checkout
   "Finalizes a payment after the user has completed checkout with PayPal

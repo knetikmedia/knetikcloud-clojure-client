@@ -17,7 +17,7 @@
               :body-param    artist-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn add-artist
   "Adds a new artist in the system
@@ -39,7 +39,7 @@
               :body-param    artist-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn create-artist-template
   "Create an artist template
@@ -58,7 +58,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn delete-artist
   "Removes an artist from the system IF no resources are attached to it"
@@ -77,7 +77,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn delete-artist-template
   "Delete an artist template
@@ -115,7 +115,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    ["OAuth2"]}))
+             :auth-names    []}))
 
 (defn get-artist-template
   "Get a single artist template"
@@ -133,7 +133,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn get-artist-templates
   "List and search artist templates"
@@ -172,7 +172,7 @@
               :body-param    artist-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-artist
   "Modifies an artist details"
@@ -192,7 +192,7 @@
               :body-param    artist-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    ["OAuth2"]})))
+              :auth-names    []})))
 
 (defn update-artist-template
   "Update an artist template"

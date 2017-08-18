@@ -14,7 +14,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-user-subscription-details
   "Get details about a user's subscription"
@@ -31,7 +31,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-users-subscription-details
   "Get details about a user's subscriptions"
@@ -50,7 +50,7 @@
               :body-param    reactivate-subscription-request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn reactivate-user-subscription
   "Reactivate a subscription and charge fee"
@@ -69,7 +69,7 @@
              :body-param    bill-date
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn set-subscription-bill-date
   "Set a new date to bill a subscription on"
@@ -89,7 +89,7 @@
               :body-param    payment-method-id
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn set-subscription-payment-method
   "Set the payment method to use for a subscription
@@ -110,7 +110,7 @@
              :body-param    status
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn set-subscription-status
   "Set the status of a subscription
@@ -130,7 +130,7 @@
               :body-param    plan-id
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn set-user-subscription-plan
   "Set a new subscription plan for a user"
@@ -151,7 +151,7 @@
               :body-param    theoverridedetails
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn set-user-subscription-price
   "Set a new subscription price for a user

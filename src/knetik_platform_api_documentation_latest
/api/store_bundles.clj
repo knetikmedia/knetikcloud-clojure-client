@@ -17,7 +17,7 @@
               :body-param    bundle-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-bundle-item
   "Create a bundle item
@@ -39,7 +39,7 @@
               :body-param    bundle-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-bundle-template
   "Create a bundle template
@@ -58,7 +58,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn delete-bundle-item
   "Delete a bundle item"
@@ -76,7 +76,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-bundle-template
   "Delete a bundle template"
@@ -151,7 +151,7 @@
               :body-param    bundle-item
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-bundle-item
   "Update a bundle item"
@@ -171,7 +171,7 @@
               :body-param    bundle-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-bundle-template
   "Update a bundle template"

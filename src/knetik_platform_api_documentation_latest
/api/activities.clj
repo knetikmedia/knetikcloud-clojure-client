@@ -16,7 +16,7 @@
               :body-param    activity-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-activity
   "Create an activity"
@@ -37,7 +37,7 @@
               :body-param    activity-occurrence-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-activity-occurrence
   "Create a new activity occurrence. Ex: start a game
@@ -59,7 +59,7 @@
               :body-param    activity-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-activity-template
   "Create a activity template
@@ -78,7 +78,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn delete-activity
   "Delete an activity"
@@ -97,7 +97,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-activity-template
   "Delete a activity template
@@ -152,7 +152,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-activity-template
   "Get a single activity template"
@@ -170,7 +170,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-activity-templates
   "List and search activity templates"
@@ -190,7 +190,7 @@
               :body-param    activity-occurrence-results
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn set-activity-occurrence-results
   "Sets the status of an activity occurrence to FINISHED and logs metrics"
@@ -210,7 +210,7 @@
               :body-param    activity-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-activity
   "Update an activity"
@@ -231,7 +231,7 @@
               :body-param    activity-cccurrence-status
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-activity-occurrence
   "Updated the status of an activity occurrence
@@ -252,7 +252,7 @@
               :body-param    activity-template-resource
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-activity-template
   "Update an activity template"

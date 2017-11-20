@@ -114,7 +114,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-campaign
   "Returns a single campaign"
@@ -132,7 +132,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-campaign-challenges
   "List the challenges associated with a campaign"
@@ -187,7 +187,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-campaigns
   "List and search campaigns"

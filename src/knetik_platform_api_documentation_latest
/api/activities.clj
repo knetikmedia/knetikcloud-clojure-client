@@ -117,7 +117,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-activities
   "List activity definitions"
@@ -135,7 +135,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-activity
   "Get a single activity"

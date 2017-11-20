@@ -52,7 +52,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-config
   "Get a single config
@@ -71,7 +71,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-configs
   "List and search configs"

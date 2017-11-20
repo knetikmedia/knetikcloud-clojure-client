@@ -116,7 +116,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-poll
   "Get a single poll"
@@ -188,7 +188,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-polls
   "List and search polls

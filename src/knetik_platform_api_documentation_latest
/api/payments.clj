@@ -68,7 +68,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-payment-method-type
   "Get a single payment method type"
@@ -86,7 +86,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-payment-method-types
   "Get all payment method types"

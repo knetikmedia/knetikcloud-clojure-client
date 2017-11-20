@@ -39,7 +39,7 @@
               :body-param    request
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn pay-stripe-invoice
   "Pay with a single use token

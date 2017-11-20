@@ -33,7 +33,7 @@
    (call-api "/challenges/{challenge_id}/activities" :post
              {:path-params   {"challenge_id" challenge-id }
               :header-params {}
-              :query-params  {"validateSettings" validate-settings }
+              :query-params  {"validate_settings" validate-settings }
               :form-params   {}
               :body-param    challenge-activity-resource
               :content-types ["application/json"]
@@ -195,7 +195,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-challenge
   "Retrieve a challenge"
@@ -213,7 +213,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-challenge-activities
   "List and search challenge activities"
@@ -232,7 +232,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-challenge-activity
   "Get a single challenge activity
@@ -286,7 +286,7 @@
              :form-params   {}
              :content-types ["application/json"]
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-challenge-event
   "Retrieve a single challenge event details"
@@ -304,7 +304,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-challenge-events
   "Retrieve a list of challenge events"
@@ -359,7 +359,7 @@
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]
-              :auth-names    []})))
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-challenges
   "Retrieve a list of challenges"
@@ -393,11 +393,11 @@
   "Update a challenge activity
   A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge"
   ([id challenge-id ] (update-challenge-activity-with-http-info id challenge-id nil))
-  ([id challenge-id {:keys [challenge-activity-resource ]}]
+  ([id challenge-id {:keys [challenge-activity-resource validate-settings ]}]
    (call-api "/challenges/{challenge_id}/activities/{id}" :put
              {:path-params   {"id" id "challenge_id" challenge-id }
               :header-params {}
-              :query-params  {}
+              :query-params  {"validateSettings" validate-settings }
               :form-params   {}
               :body-param    challenge-activity-resource
               :content-types ["application/json"]

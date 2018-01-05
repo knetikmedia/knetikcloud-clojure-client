@@ -77,28 +77,6 @@
   ([context context-id optional-params]
    (:data (get-comments-with-http-info context context-id optional-params))))
 
-(defn search-comments-with-http-info
-  "Search the comment index
-  The body is an ElasticSearch query json. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html'>documentation</a> for details on the format and search options"
-  ([] (search-comments-with-http-info nil))
-  ([{:keys [query size page ]}]
-   (call-api "/comments/search" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {"size" size "page" page }
-              :form-params   {}
-              :body-param    query
-              :content-types ["application/json"]
-              :accepts       ["application/json"]
-              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
-
-(defn search-comments
-  "Search the comment index
-  The body is an ElasticSearch query json. Please see their <a href='https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html'>documentation</a> for details on the format and search options"
-  ([] (search-comments nil))
-  ([optional-params]
-   (:data (search-comments-with-http-info optional-params))))
-
 (defn update-comment-with-http-info
   "Update a comment"
   ([id ] (update-comment-with-http-info id nil))

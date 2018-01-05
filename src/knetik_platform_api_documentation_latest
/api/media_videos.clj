@@ -146,6 +146,28 @@
   ([video-id optional-params]
    (:data (create-video-disposition-with-http-info video-id optional-params))))
 
+(defn create-video-template-with-http-info
+  "Create a video template
+  Video Templates define a type of video and the properties they have"
+  ([] (create-video-template-with-http-info nil))
+  ([{:keys [video-template-resource ]}]
+   (call-api "/media/videos/templates" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    video-template-resource
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn create-video-template
+  "Create a video template
+  Video Templates define a type of video and the properties they have"
+  ([] (create-video-template nil))
+  ([optional-params]
+   (:data (create-video-template-with-http-info optional-params))))
+
 (defn delete-video-with-http-info
   "Deletes a video from the system if no resources are attached to it"
   [id ]
@@ -230,6 +252,27 @@
   "Delete a video's relationship"
   [video-id id ]
   (:data (delete-video-relationship-with-http-info video-id id)))
+
+(defn delete-video-template-with-http-info
+  "Delete a video template
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  ([id ] (delete-video-template-with-http-info id nil))
+  ([id {:keys [cascade ]}]
+   (call-api "/media/videos/templates/{id}" :delete
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {"cascade" cascade }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn delete-video-template
+  "Delete a video template
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  ([id ] (delete-video-template id nil))
+  ([id optional-params]
+   (:data (delete-video-template-with-http-info id optional-params))))
 
 (defn get-user-videos-with-http-info
   "Get user videos"
@@ -323,6 +366,42 @@
   ([video-id ] (get-video-relationships video-id nil))
   ([video-id optional-params]
    (:data (get-video-relationships-with-http-info video-id optional-params))))
+
+(defn get-video-template-with-http-info
+  "Get a single video template"
+  [id ]
+  (call-api "/media/videos/templates/{id}" :get
+            {:path-params   {"id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
+
+(defn get-video-template
+  "Get a single video template"
+  [id ]
+  (:data (get-video-template-with-http-info id)))
+
+(defn get-video-templates-with-http-info
+  "List and search video templates"
+  ([] (get-video-templates-with-http-info nil))
+  ([{:keys [size page order ]}]
+   (call-api "/media/videos/templates" :get
+             {:path-params   {}
+              :header-params {}
+              :query-params  {"size" size "page" page "order" order }
+              :form-params   {}
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn get-video-templates
+  "List and search video templates"
+  ([] (get-video-templates nil))
+  ([optional-params]
+   (:data (get-video-templates-with-http-info optional-params))))
 
 (defn get-videos-with-http-info
   "Search videos using the documented filters"
@@ -438,6 +517,26 @@
   ([video-id relationship-id ] (update-video-relationship video-id relationship-id nil))
   ([video-id relationship-id optional-params]
    (:data (update-video-relationship-with-http-info video-id relationship-id optional-params))))
+
+(defn update-video-template-with-http-info
+  "Update a video template"
+  ([id ] (update-video-template-with-http-info id nil))
+  ([id {:keys [video-template-resource ]}]
+   (call-api "/media/videos/templates/{id}" :put
+             {:path-params   {"id" id }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    video-template-resource
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn update-video-template
+  "Update a video template"
+  ([id ] (update-video-template id nil))
+  ([id optional-params]
+   (:data (update-video-template-with-http-info id optional-params))))
 
 (defn view-video-with-http-info
   "Increment a video's view count"

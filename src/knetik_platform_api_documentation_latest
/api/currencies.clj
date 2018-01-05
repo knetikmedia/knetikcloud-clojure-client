@@ -44,11 +44,11 @@
 (defn get-currencies-with-http-info
   "List and search currencies"
   ([] (get-currencies-with-http-info nil))
-  ([{:keys [filter-enabled-currencies filter-type size page order ]}]
+  ([{:keys [filter-default filter-enabled-currencies filter-type size page order ]}]
    (call-api "/currencies" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"filter_enabled_currencies" filter-enabled-currencies "filter_type" filter-type "size" size "page" page "order" order }
+              :query-params  {"filter_default" filter-default "filter_enabled_currencies" filter-enabled-currencies "filter_type" filter-type "size" size "page" page "order" order }
               :form-params   {}
               :content-types ["application/json"]
               :accepts       ["application/json"]

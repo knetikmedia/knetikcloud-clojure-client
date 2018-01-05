@@ -105,7 +105,8 @@
    (:data (create-group-template-with-http-info optional-params))))
 
 (defn delete-group-with-http-info
-  "Removes a group from the system IF no resources are attached to it"
+  "Removes a group from the system
+  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well."
   [unique-name ]
   (call-api "/users/groups/{unique_name}" :delete
             {:path-params   {"unique_name" unique-name }
@@ -117,7 +118,8 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn delete-group
-  "Removes a group from the system IF no resources are attached to it"
+  "Removes a group from the system
+  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well."
   [unique-name ]
   (:data (delete-group-with-http-info unique-name)))
 
@@ -179,6 +181,25 @@
   "Loads a specific group's details"
   [unique-name ]
   (:data (get-group-with-http-info unique-name)))
+
+(defn get-group-ancestors-with-http-info
+  "Get group ancestors
+  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc"
+  [unique-name ]
+  (call-api "/users/groups/{unique_name}/ancestors" :get
+            {:path-params   {"unique_name" unique-name }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn get-group-ancestors
+  "Get group ancestors
+  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc"
+  [unique-name ]
+  (:data (get-group-ancestors-with-http-info unique-name)))
 
 (defn get-group-member-with-http-info
   "Get a user from a group"
@@ -344,7 +365,8 @@
   (:data (remove-group-member-with-http-info unique-name user-id)))
 
 (defn update-group-with-http-info
-  "Update a group"
+  "Update a group
+  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it."
   ([unique-name ] (update-group-with-http-info unique-name nil))
   ([unique-name {:keys [group-resource ]}]
    (call-api "/users/groups/{unique_name}" :put
@@ -358,7 +380,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-group
-  "Update a group"
+  "Update a group
+  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it."
   ([unique-name ] (update-group unique-name nil))
   ([unique-name optional-params]
    (:data (update-group-with-http-info unique-name optional-params))))

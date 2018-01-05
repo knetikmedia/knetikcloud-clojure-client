@@ -158,10 +158,10 @@
 
 (defn update-object-item-with-http-info
   "Update an object"
-  ([template-id entitlement-id ] (update-object-item-with-http-info template-id entitlement-id nil))
-  ([template-id entitlement-id {:keys [cascade object-item ]}]
+  ([template-id object-id ] (update-object-item-with-http-info template-id object-id nil))
+  ([template-id object-id {:keys [cascade object-item ]}]
    (call-api "/objects/{template_id}/{object_id}" :put
-             {:path-params   {"template_id" template-id "entitlement_id" entitlement-id }
+             {:path-params   {"template_id" template-id "object_id" object-id }
               :header-params {}
               :query-params  {"cascade" cascade }
               :form-params   {}
@@ -172,9 +172,9 @@
 
 (defn update-object-item
   "Update an object"
-  ([template-id entitlement-id ] (update-object-item template-id entitlement-id nil))
-  ([template-id entitlement-id optional-params]
-   (:data (update-object-item-with-http-info template-id entitlement-id optional-params))))
+  ([template-id object-id ] (update-object-item template-id object-id nil))
+  ([template-id object-id optional-params]
+   (:data (update-object-item-with-http-info template-id object-id optional-params))))
 
 (defn update-object-template-with-http-info
   "Update an entitlement template"

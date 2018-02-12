@@ -5,7 +5,8 @@
   (:import (java.io File)))
 
 (defn add-member-to-group-with-http-info
-  "Adds a new member to the group"
+  "Adds a new member to the group
+  <b>Permissions Needed:</b> GROUP_ADMIN or self if open"
   [unique-name user ]
   (call-api "/users/groups/{unique_name}/members" :post
             {:path-params   {"unique_name" unique-name }
@@ -18,12 +19,14 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn add-member-to-group
-  "Adds a new member to the group"
+  "Adds a new member to the group
+  <b>Permissions Needed:</b> GROUP_ADMIN or self if open"
   [unique-name user ]
   (:data (add-member-to-group-with-http-info unique-name user)))
 
 (defn add-members-to-group-with-http-info
-  "Adds multiple members to the group"
+  "Adds multiple members to the group
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name users ]
   (call-api "/users/groups/{unique_name}/members/batch-add" :post
             {:path-params   {"unique_name" unique-name }
@@ -36,12 +39,14 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn add-members-to-group
-  "Adds multiple members to the group"
+  "Adds multiple members to the group
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name users ]
   (:data (add-members-to-group-with-http-info unique-name users)))
 
 (defn create-group-with-http-info
-  "Create a group"
+  "Create a group
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   ([] (create-group-with-http-info nil))
   ([{:keys [group-resource ]}]
    (call-api "/users/groups" :post
@@ -55,14 +60,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-group
-  "Create a group"
+  "Create a group
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   ([] (create-group nil))
   ([optional-params]
    (:data (create-group-with-http-info optional-params))))
 
 (defn create-group-member-template-with-http-info
   "Create an group member template
-  GroupMember Templates define a type of group member and the properties they have"
+  GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-group-member-template-with-http-info nil))
   ([{:keys [group-member-template-resource ]}]
    (call-api "/users/groups/members/templates" :post
@@ -77,14 +83,14 @@
 
 (defn create-group-member-template
   "Create an group member template
-  GroupMember Templates define a type of group member and the properties they have"
+  GroupMember Templates define a type of group member and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-group-member-template nil))
   ([optional-params]
    (:data (create-group-member-template-with-http-info optional-params))))
 
 (defn create-group-template-with-http-info
   "Create a group template
-  Group Templates define a type of group and the properties they have"
+  Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-group-template-with-http-info nil))
   ([{:keys [group-template-resource ]}]
    (call-api "/users/groups/templates" :post
@@ -99,33 +105,33 @@
 
 (defn create-group-template
   "Create a group template
-  Group Templates define a type of group and the properties they have"
+  Group Templates define a type of group and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-group-template nil))
   ([optional-params]
    (:data (create-group-template-with-http-info optional-params))))
 
 (defn delete-group-with-http-info
   "Removes a group from the system
-  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well."
+  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name ]
   (call-api "/users/groups/{unique_name}" :delete
             {:path-params   {"unique_name" unique-name }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn delete-group
   "Removes a group from the system
-  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well."
+  All groups listing this as the parent are also removed and users are in turn removed from this and those groups. This may result in users no longer being in this group's parent if they were not added to it directly as well. <br><br><b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name ]
   (:data (delete-group-with-http-info unique-name)))
 
 (defn delete-group-member-template-with-http-info
   "Delete an group member template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-group-member-template-with-http-info id nil))
   ([id {:keys [cascade ]}]
    (call-api "/users/groups/members/templates/{id}" :delete
@@ -133,20 +139,20 @@
               :header-params {}
               :query-params  {"cascade" cascade }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-group-member-template
   "Delete an group member template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-group-member-template id nil))
   ([id optional-params]
    (:data (delete-group-member-template-with-http-info id optional-params))))
 
 (defn delete-group-template-with-http-info
   "Delete a group template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-group-template-with-http-info id nil))
   ([id {:keys [cascade ]}]
    (call-api "/users/groups/templates/{id}" :delete
@@ -154,89 +160,114 @@
               :header-params {}
               :query-params  {"cascade" cascade }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-group-template
   "Delete a group template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-group-template id nil))
   ([id optional-params]
    (:data (delete-group-template-with-http-info id optional-params))))
 
+(defn disable-group-notification-with-http-info
+  "Enable or disable notification of group messages"
+  [unique-name user-id disabled ]
+  (call-api "/users/groups/{unique_name}/members/{user_id}/messages/disabled" :put
+            {:path-params   {"unique_name" unique-name "user_id" user-id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :body-param    disabled
+             :content-types ["application/json"]
+             :accepts       ["application/json"]
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
+
+(defn disable-group-notification
+  "Enable or disable notification of group messages"
+  [unique-name user-id disabled ]
+  (:data (disable-group-notification-with-http-info unique-name user-id disabled)))
+
 (defn get-group-with-http-info
-  "Loads a specific group's details"
+  "Loads a specific group's details
+  <b>Permissions Needed:</b> ANY"
   [unique-name ]
   (call-api "/users/groups/{unique_name}" :get
             {:path-params   {"unique_name" unique-name }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-group
-  "Loads a specific group's details"
+  "Loads a specific group's details
+  <b>Permissions Needed:</b> ANY"
   [unique-name ]
   (:data (get-group-with-http-info unique-name)))
 
 (defn get-group-ancestors-with-http-info
   "Get group ancestors
-  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc"
+  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY"
   [unique-name ]
   (call-api "/users/groups/{unique_name}/ancestors" :get
             {:path-params   {"unique_name" unique-name }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
-             :auth-names    []}))
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-group-ancestors
   "Get group ancestors
-  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc"
+  Returns a list of ancestor groups in reverse order (parent, then grandparent, etc). <br><br><b>Permissions Needed:</b> ANY"
   [unique-name ]
   (:data (get-group-ancestors-with-http-info unique-name)))
 
 (defn get-group-member-with-http-info
-  "Get a user from a group"
+  "Get a user from a group
+  <b>Permissions Needed:</b> ANY"
   [unique-name user-id ]
   (call-api "/users/groups/{unique_name}/members/{user_id}" :get
             {:path-params   {"unique_name" unique-name "user_id" user-id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-group-member
-  "Get a user from a group"
+  "Get a user from a group
+  <b>Permissions Needed:</b> ANY"
   [unique-name user-id ]
   (:data (get-group-member-with-http-info unique-name user-id)))
 
 (defn get-group-member-template-with-http-info
-  "Get a single group member template"
+  "Get a single group member template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   [id ]
   (call-api "/users/groups/members/templates/{id}" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-group-member-template
-  "Get a single group member template"
+  "Get a single group member template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   [id ]
   (:data (get-group-member-template-with-http-info id)))
 
 (defn get-group-member-templates-with-http-info
-  "List and search group member templates"
+  "List and search group member templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   ([] (get-group-member-templates-with-http-info nil))
   ([{:keys [size page order ]}]
    (call-api "/users/groups/members/templates" :get
@@ -244,18 +275,20 @@
               :header-params {}
               :query-params  {"size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-group-member-templates
-  "List and search group member templates"
+  "List and search group member templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   ([] (get-group-member-templates nil))
   ([optional-params]
    (:data (get-group-member-templates-with-http-info optional-params))))
 
 (defn get-group-members-with-http-info
-  "Lists members of the group"
+  "Lists members of the group
+  <b>Permissions Needed:</b> ANY"
   ([unique-name ] (get-group-members-with-http-info unique-name nil))
   ([unique-name {:keys [size page order ]}]
    (call-api "/users/groups/{unique_name}/members" :get
@@ -263,35 +296,60 @@
               :header-params {}
               :query-params  {"size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-group-members
-  "Lists members of the group"
+  "Lists members of the group
+  <b>Permissions Needed:</b> ANY"
   ([unique-name ] (get-group-members unique-name nil))
   ([unique-name optional-params]
    (:data (get-group-members-with-http-info unique-name optional-params))))
 
+(defn get-group-messages-with-http-info
+  "Get a list of group messages
+  <b>Permissions Needed:</b> ANY"
+  ([unique-name ] (get-group-messages-with-http-info unique-name nil))
+  ([unique-name {:keys [size page ]}]
+   (call-api "/users/groups/{unique_name}/messages" :get
+             {:path-params   {"unique_name" unique-name }
+              :header-params {}
+              :query-params  {"size" size "page" page }
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn get-group-messages
+  "Get a list of group messages
+  <b>Permissions Needed:</b> ANY"
+  ([unique-name ] (get-group-messages unique-name nil))
+  ([unique-name optional-params]
+   (:data (get-group-messages-with-http-info unique-name optional-params))))
+
 (defn get-group-template-with-http-info
-  "Get a single group template"
+  "Get a single group template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   [id ]
   (call-api "/users/groups/templates/{id}" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-group-template
-  "Get a single group template"
+  "Get a single group template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   [id ]
   (:data (get-group-template-with-http-info id)))
 
 (defn get-group-templates-with-http-info
-  "List and search group templates"
+  "List and search group templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   ([] (get-group-templates-with-http-info nil))
   ([{:keys [size page order ]}]
    (call-api "/users/groups/templates" :get
@@ -299,18 +357,20 @@
               :header-params {}
               :query-params  {"size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-group-templates
-  "List and search group templates"
+  "List and search group templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or GROUP_ADMIN"
   ([] (get-group-templates nil))
   ([optional-params]
    (:data (get-group-templates-with-http-info optional-params))))
 
 (defn get-groups-for-user-with-http-info
-  "List groups a user is in"
+  "List groups a user is in
+  <b>Permissions Needed:</b> ANY"
   ([user-id ] (get-groups-for-user-with-http-info user-id nil))
   ([user-id {:keys [filter-children ]}]
    (call-api "/users/{user_id}/groups" :get
@@ -318,18 +378,20 @@
               :header-params {}
               :query-params  {"filter_children" filter-children }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-groups-for-user
-  "List groups a user is in"
+  "List groups a user is in
+  <b>Permissions Needed:</b> ANY"
   ([user-id ] (get-groups-for-user user-id nil))
   ([user-id optional-params]
    (:data (get-groups-for-user-with-http-info user-id optional-params))))
 
 (defn list-groups-with-http-info
-  "List and search groups"
+  "List and search groups
+  <b>Permissions Needed:</b> ANY"
   ([] (list-groups-with-http-info nil))
   ([{:keys [filter-template filter-member-count filter-name filter-unique-name filter-parent filter-status size page order ]}]
    (call-api "/users/groups" :get
@@ -337,36 +399,59 @@
               :header-params {}
               :query-params  {"filter_template" filter-template "filter_member_count" filter-member-count "filter_name" filter-name "filter_unique_name" filter-unique-name "filter_parent" filter-parent "filter_status" filter-status "size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn list-groups
-  "List and search groups"
+  "List and search groups
+  <b>Permissions Needed:</b> ANY"
   ([] (list-groups nil))
   ([optional-params]
    (:data (list-groups-with-http-info optional-params))))
 
+(defn post-group-message-with-http-info
+  "Send a group message"
+  ([unique-name ] (post-group-message-with-http-info unique-name nil))
+  ([unique-name {:keys [chat-message-request ]}]
+   (call-api "/users/groups/{unique_name}/messages" :post
+             {:path-params   {"unique_name" unique-name }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    chat-message-request
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn post-group-message
+  "Send a group message"
+  ([unique-name ] (post-group-message unique-name nil))
+  ([unique-name optional-params]
+   (:data (post-group-message-with-http-info unique-name optional-params))))
+
 (defn remove-group-member-with-http-info
-  "Removes a user from a group"
+  "Removes a user from a group
+  <b>Permissions Needed:</b> GROUP_ADMIN or self if open"
   [unique-name user-id ]
   (call-api "/users/groups/{unique_name}/members/{user_id}" :delete
             {:path-params   {"unique_name" unique-name "user_id" user-id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn remove-group-member
-  "Removes a user from a group"
+  "Removes a user from a group
+  <b>Permissions Needed:</b> GROUP_ADMIN or self if open"
   [unique-name user-id ]
   (:data (remove-group-member-with-http-info unique-name user-id)))
 
 (defn update-group-with-http-info
   "Update a group
-  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it."
+  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group"
   ([unique-name ] (update-group-with-http-info unique-name nil))
   ([unique-name {:keys [group-resource ]}]
    (call-api "/users/groups/{unique_name}" :put
@@ -381,13 +466,14 @@
 
 (defn update-group
   "Update a group
-  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it."
+  If adding/removing/changing parent, user membership in group/new parent groups may be modified. The parent being removed will remove members from this sub group unless they were added explicitly to the parent and the new parent will gain members unless they were already a part of it. <br><br><b>Permissions Needed:</b> GROUP_ADMIN or admin of the group"
   ([unique-name ] (update-group unique-name nil))
   ([unique-name optional-params]
    (:data (update-group-with-http-info unique-name optional-params))))
 
 (defn update-group-member-properties-with-http-info
-  "Change a user's order"
+  "Change a user's order
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name user-id order ]
   (call-api "/users/groups/{unique_name}/members/{user_id}/order" :put
             {:path-params   {"unique_name" unique-name "user_id" user-id }
@@ -400,12 +486,14 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn update-group-member-properties
-  "Change a user's order"
+  "Change a user's order
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name user-id order ]
   (:data (update-group-member-properties-with-http-info unique-name user-id order)))
 
 (defn update-group-member-properties1-with-http-info
-  "Change a user's membership properties"
+  "Change a user's membership properties
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name user-id properties ]
   (call-api "/users/groups/{unique_name}/members/{user_id}/properties" :put
             {:path-params   {"unique_name" unique-name "user_id" user-id }
@@ -418,12 +506,14 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn update-group-member-properties1
-  "Change a user's membership properties"
+  "Change a user's membership properties
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name user-id properties ]
   (:data (update-group-member-properties1-with-http-info unique-name user-id properties)))
 
 (defn update-group-member-status-with-http-info
-  "Change a user's status"
+  "Change a user's status
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name user-id status ]
   (call-api "/users/groups/{unique_name}/members/{user_id}/status" :put
             {:path-params   {"unique_name" unique-name "user_id" user-id }
@@ -436,12 +526,14 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn update-group-member-status
-  "Change a user's status"
+  "Change a user's status
+  <b>Permissions Needed:</b> GROUP_ADMIN"
   [unique-name user-id status ]
   (:data (update-group-member-status-with-http-info unique-name user-id status)))
 
 (defn update-group-member-template-with-http-info
-  "Update an group member template"
+  "Update an group member template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-group-member-template-with-http-info id nil))
   ([id {:keys [group-member-template-resource ]}]
    (call-api "/users/groups/members/templates/{id}" :put
@@ -455,13 +547,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-group-member-template
-  "Update an group member template"
+  "Update an group member template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-group-member-template id nil))
   ([id optional-params]
    (:data (update-group-member-template-with-http-info id optional-params))))
 
 (defn update-group-template-with-http-info
-  "Update a group template"
+  "Update a group template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-group-template-with-http-info id nil))
   ([id {:keys [group-template-resource ]}]
    (call-api "/users/groups/templates/{id}" :put
@@ -475,7 +569,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-group-template
-  "Update a group template"
+  "Update a group template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-group-template id nil))
   ([id optional-params]
    (:data (update-group-template-with-http-info id optional-params))))

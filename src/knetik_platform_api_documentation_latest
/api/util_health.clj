@@ -5,19 +5,21 @@
   (:import (java.io File)))
 
 (defn get-health-with-http-info
-  "Get health info"
+  "Get health info
+  <b>Permissions Needed:</b> ANY"
   []
   (call-api "/health" :get
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-health
-  "Get health info"
+  "Get health info
+  <b>Permissions Needed:</b> ANY"
   []
   (:data (get-health-with-http-info)))
 

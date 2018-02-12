@@ -6,7 +6,7 @@
 
 (defn create-stripe-payment-method-with-http-info
   "Create a Stripe payment method for a user
-  Obtain a token from Stripe, following their examples and documentation. Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid."
+  Obtain a token from Stripe, following their examples and documentation. Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. <br><br><b>Permissions Needed:</b> STRIPE_ADMIN or owner"
   ([] (create-stripe-payment-method-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/stripe/payment-methods" :post
@@ -21,14 +21,14 @@
 
 (defn create-stripe-payment-method
   "Create a Stripe payment method for a user
-  Obtain a token from Stripe, following their examples and documentation. Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid."
+  Obtain a token from Stripe, following their examples and documentation. Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. <br><br><b>Permissions Needed:</b> STRIPE_ADMIN or owner"
   ([] (create-stripe-payment-method nil))
   ([optional-params]
    (:data (create-stripe-payment-method-with-http-info optional-params))))
 
 (defn pay-stripe-invoice-with-http-info
   "Pay with a single use token
-  Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid."
+  Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. <br><br><b>Permissions Needed:</b> ANY"
   ([] (pay-stripe-invoice-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/stripe/payments" :post
@@ -43,7 +43,7 @@
 
 (defn pay-stripe-invoice
   "Pay with a single use token
-  Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid."
+  Obtain a token from Stripe, following their examples and documentation. Pays an invoice without creating a payment method. Ensure that Stripe itself has been configured with the webhook so that invoices are marked paid. <br><br><b>Permissions Needed:</b> ANY"
   ([] (pay-stripe-invoice nil))
   ([optional-params]
    (:data (pay-stripe-invoice-with-http-info optional-params))))

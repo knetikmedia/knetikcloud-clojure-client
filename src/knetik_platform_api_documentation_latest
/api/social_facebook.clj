@@ -6,7 +6,7 @@
 
 (defn link-accounts-with-http-info
   "Link facebook account
-  Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired."
+  Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-facebook user token"
   ([] (link-accounts-with-http-info nil))
   ([{:keys [facebook-token ]}]
    (call-api "/social/facebook/users" :post
@@ -21,7 +21,7 @@
 
 (defn link-accounts
   "Link facebook account
-  Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired."
+  Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired. <br><br><b>Permissions Needed:</b> Non-facebook user token"
   ([] (link-accounts nil))
   ([optional-params]
    (:data (link-accounts-with-http-info optional-params))))

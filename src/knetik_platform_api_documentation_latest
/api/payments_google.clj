@@ -6,7 +6,7 @@
 
 (defn handle-google-payment-with-http-info
   "Mark an invoice paid with Google
-  Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful."
+  Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful. <br><br><b>Permissions Needed:</b> ANY"
   ([] (handle-google-payment-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/google/payments" :post
@@ -21,7 +21,7 @@
 
 (defn handle-google-payment
   "Mark an invoice paid with Google
-  Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful."
+  Mark an invoice paid with Google. Verifies signature from Google and treats the developerPayload field inside the json payload as the id of the invoice to pay. Returns the transaction ID if successful. <br><br><b>Permissions Needed:</b> ANY"
   ([] (handle-google-payment nil))
   ([optional-params]
    (:data (handle-google-payment-with-http-info optional-params))))

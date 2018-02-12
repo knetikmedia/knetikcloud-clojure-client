@@ -5,7 +5,8 @@
   (:import (java.io File)))
 
 (defn create-payment-method-with-http-info
-  "Create a new payment method for a user"
+  "Create a new payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   ([user-id ] (create-payment-method-with-http-info user-id nil))
   ([user-id {:keys [payment-method ]}]
    (call-api "/users/{user_id}/payment-methods" :post
@@ -19,64 +20,72 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-payment-method
-  "Create a new payment method for a user"
+  "Create a new payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   ([user-id ] (create-payment-method user-id nil))
   ([user-id optional-params]
    (:data (create-payment-method-with-http-info user-id optional-params))))
 
 (defn delete-payment-method-with-http-info
-  "Delete an existing payment method for a user"
+  "Delete an existing payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   [user-id id ]
   (call-api "/users/{user_id}/payment-methods/{id}" :delete
             {:path-params   {"user_id" user-id "id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn delete-payment-method
-  "Delete an existing payment method for a user"
+  "Delete an existing payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   [user-id id ]
   (:data (delete-payment-method-with-http-info user-id id)))
 
 (defn get-payment-method-with-http-info
-  "Get a single payment method for a user"
+  "Get a single payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   [user-id id ]
   (call-api "/users/{user_id}/payment-methods/{id}" :get
             {:path-params   {"user_id" user-id "id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-payment-method
-  "Get a single payment method for a user"
+  "Get a single payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   [user-id id ]
   (:data (get-payment-method-with-http-info user-id id)))
 
 (defn get-payment-method-type-with-http-info
-  "Get a single payment method type"
+  "Get a single payment method type
+  <b>Permissions Needed:</b> ANY"
   [id ]
   (call-api "/payment/types/{id}" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-payment-method-type
-  "Get a single payment method type"
+  "Get a single payment method type
+  <b>Permissions Needed:</b> ANY"
   [id ]
   (:data (get-payment-method-type-with-http-info id)))
 
 (defn get-payment-method-types-with-http-info
-  "Get all payment method types"
+  "Get all payment method types
+  <b>Permissions Needed:</b> ANY"
   ([] (get-payment-method-types-with-http-info nil))
   ([{:keys [filter-name size page order ]}]
    (call-api "/payment/types" :get
@@ -84,18 +93,20 @@
               :header-params {}
               :query-params  {"filter_name" filter-name "size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-payment-method-types
-  "Get all payment method types"
+  "Get all payment method types
+  <b>Permissions Needed:</b> ANY"
   ([] (get-payment-method-types nil))
   ([optional-params]
    (:data (get-payment-method-types-with-http-info optional-params))))
 
 (defn get-payment-methods-with-http-info
-  "Get all payment methods for a user"
+  "Get all payment methods for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   ([user-id ] (get-payment-methods-with-http-info user-id nil))
   ([user-id {:keys [filter-name filter-payment-type filter-payment-method-type-id filter-payment-method-type-name size page order ]}]
    (call-api "/users/{user_id}/payment-methods" :get
@@ -103,18 +114,20 @@
               :header-params {}
               :query-params  {"filter_name" filter-name "filter_payment_type" filter-payment-type "filter_payment_method_type_id" filter-payment-method-type-id "filter_payment_method_type_name" filter-payment-method-type-name "size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-payment-methods
-  "Get all payment methods for a user"
+  "Get all payment methods for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   ([user-id ] (get-payment-methods user-id nil))
   ([user-id optional-params]
    (:data (get-payment-methods-with-http-info user-id optional-params))))
 
 (defn payment-authorization-with-http-info
-  "Authorize payment of an invoice for later capture"
+  "Authorize payment of an invoice for later capture
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or PAYMENTS_USER"
   ([] (payment-authorization-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/authorizations" :post
@@ -128,13 +141,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn payment-authorization
-  "Authorize payment of an invoice for later capture"
+  "Authorize payment of an invoice for later capture
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or PAYMENTS_USER"
   ([] (payment-authorization nil))
   ([optional-params]
    (:data (payment-authorization-with-http-info optional-params))))
 
 (defn payment-capture-with-http-info
-  "Capture an existing invoice payment authorization"
+  "Capture an existing invoice payment authorization
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN"
   [id ]
   (call-api "/payment/authorizations/{id}/capture" :post
             {:path-params   {"id" id }
@@ -146,12 +161,14 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn payment-capture
-  "Capture an existing invoice payment authorization"
+  "Capture an existing invoice payment authorization
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN"
   [id ]
   (:data (payment-capture-with-http-info id)))
 
 (defn update-payment-method-with-http-info
-  "Update an existing payment method for a user"
+  "Update an existing payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   ([user-id id ] (update-payment-method-with-http-info user-id id nil))
   ([user-id id {:keys [payment-method ]}]
    (call-api "/users/{user_id}/payment-methods/{id}" :put
@@ -165,7 +182,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-payment-method
-  "Update an existing payment method for a user"
+  "Update an existing payment method for a user
+  <b>Permissions Needed:</b> PAYMENTS_ADMIN or owner"
   ([user-id id ] (update-payment-method user-id id nil))
   ([user-id id optional-params]
    (:data (update-payment-method-with-http-info user-id id optional-params))))

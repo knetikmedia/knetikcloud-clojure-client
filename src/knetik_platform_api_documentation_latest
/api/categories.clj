@@ -5,7 +5,8 @@
   (:import (java.io File)))
 
 (defn create-category-with-http-info
-  "Create a new category"
+  "Create a new category
+  <b>Permissions Needed:</b> CATEGORIES_ADMIN"
   ([] (create-category-with-http-info nil))
   ([{:keys [category ]}]
    (call-api "/categories" :post
@@ -19,14 +20,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-category
-  "Create a new category"
+  "Create a new category
+  <b>Permissions Needed:</b> CATEGORIES_ADMIN"
   ([] (create-category nil))
   ([optional-params]
    (:data (create-category-with-http-info optional-params))))
 
 (defn create-category-template-with-http-info
   "Create a category template
-  Templates define a type of category and the properties they have"
+  Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-category-template-with-http-info nil))
   ([{:keys [template ]}]
    (call-api "/categories/templates" :post
@@ -41,31 +43,33 @@
 
 (defn create-category-template
   "Create a category template
-  Templates define a type of category and the properties they have"
+  Templates define a type of category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-category-template nil))
   ([optional-params]
    (:data (create-category-template-with-http-info optional-params))))
 
 (defn delete-category-with-http-info
-  "Delete an existing category"
+  "Delete an existing category
+  <b>Permissions Needed:</b> CATEGORIES_ADMIN"
   [id ]
   (call-api "/categories/{id}" :delete
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn delete-category
-  "Delete an existing category"
+  "Delete an existing category
+  <b>Permissions Needed:</b> CATEGORIES_ADMIN"
   [id ]
   (:data (delete-category-with-http-info id)))
 
 (defn delete-category-template-with-http-info
   "Delete a category template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-category-template-with-http-info id nil))
   ([id {:keys [cascade ]}]
    (call-api "/categories/templates/{id}" :delete
@@ -73,19 +77,20 @@
               :header-params {}
               :query-params  {"cascade" cascade }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-category-template
   "Delete a category template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-category-template id nil))
   ([id optional-params]
    (:data (delete-category-template-with-http-info id optional-params))))
 
 (defn get-categories-with-http-info
-  "List and search categories with optional filters"
+  "List and search categories with optional filters
+  <b>Permissions Needed:</b> ANY"
   ([] (get-categories-with-http-info nil))
   ([{:keys [filter-search filter-active size page order ]}]
    (call-api "/categories" :get
@@ -93,52 +98,58 @@
               :header-params {}
               :query-params  {"filter_search" filter-search "filter_active" filter-active "size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-categories
-  "List and search categories with optional filters"
+  "List and search categories with optional filters
+  <b>Permissions Needed:</b> ANY"
   ([] (get-categories nil))
   ([optional-params]
    (:data (get-categories-with-http-info optional-params))))
 
 (defn get-category-with-http-info
-  "Get a single category"
+  "Get a single category
+  <b>Permissions Needed:</b> ANY"
   [id ]
   (call-api "/categories/{id}" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-category
-  "Get a single category"
+  "Get a single category
+  <b>Permissions Needed:</b> ANY"
   [id ]
   (:data (get-category-with-http-info id)))
 
 (defn get-category-template-with-http-info
-  "Get a single category template"
+  "Get a single category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN"
   [id ]
   (call-api "/categories/templates/{id}" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-category-template
-  "Get a single category template"
+  "Get a single category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN"
   [id ]
   (:data (get-category-template-with-http-info id)))
 
 (defn get-category-templates-with-http-info
-  "List and search category templates"
+  "List and search category templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN"
   ([] (get-category-templates-with-http-info nil))
   ([{:keys [size page order ]}]
    (call-api "/categories/templates" :get
@@ -146,18 +157,20 @@
               :header-params {}
               :query-params  {"size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-category-templates
-  "List and search category templates"
+  "List and search category templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or CATEGORIES_ADMIN"
   ([] (get-category-templates nil))
   ([optional-params]
    (:data (get-category-templates-with-http-info optional-params))))
 
 (defn get-tags-with-http-info
-  "List all trivia tags in the system"
+  "List all trivia tags in the system
+  <b>Permissions Needed:</b> ANY"
   ([] (get-tags-with-http-info nil))
   ([{:keys [size page ]}]
    (call-api "/tags" :get
@@ -165,18 +178,20 @@
               :header-params {}
               :query-params  {"size" size "page" page }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-tags
-  "List all trivia tags in the system"
+  "List all trivia tags in the system
+  <b>Permissions Needed:</b> ANY"
   ([] (get-tags nil))
   ([optional-params]
    (:data (get-tags-with-http-info optional-params))))
 
 (defn update-category-with-http-info
-  "Update an existing category"
+  "Update an existing category
+  <b>Permissions Needed:</b> CATEGORIES_ADMIN"
   ([id ] (update-category-with-http-info id nil))
   ([id {:keys [category ]}]
    (call-api "/categories/{id}" :put
@@ -190,13 +205,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-category
-  "Update an existing category"
+  "Update an existing category
+  <b>Permissions Needed:</b> CATEGORIES_ADMIN"
   ([id ] (update-category id nil))
   ([id optional-params]
    (:data (update-category-with-http-info id optional-params))))
 
 (defn update-category-template-with-http-info
-  "Update a category template"
+  "Update a category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-category-template-with-http-info id nil))
   ([id {:keys [template ]}]
    (call-api "/categories/templates/{id}" :put
@@ -210,7 +227,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-category-template
-  "Update a category template"
+  "Update a category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-category-template id nil))
   ([id optional-params]
    (:data (update-category-template-with-http-info id optional-params))))

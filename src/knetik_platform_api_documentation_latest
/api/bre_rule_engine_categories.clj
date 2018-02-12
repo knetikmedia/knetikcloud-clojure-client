@@ -6,7 +6,7 @@
 
 (defn create-bre-category-template-with-http-info
   "Create a BRE category template
-  Templates define a type of BRE category and the properties they have"
+  Templates define a type of BRE category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-bre-category-template-with-http-info nil))
   ([{:keys [template ]}]
    (call-api "/bre/categories/templates" :post
@@ -21,14 +21,14 @@
 
 (defn create-bre-category-template
   "Create a BRE category template
-  Templates define a type of BRE category and the properties they have"
+  Templates define a type of BRE category and the properties they have. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([] (create-bre-category-template nil))
   ([optional-params]
    (:data (create-bre-category-template-with-http-info optional-params))))
 
 (defn delete-bre-category-template-with-http-info
   "Delete a BRE category template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-bre-category-template-with-http-info id nil))
   ([id {:keys [cascade ]}]
    (call-api "/bre/categories/templates/{id}" :delete
@@ -36,19 +36,20 @@
               :header-params {}
               :query-params  {"cascade" cascade }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-bre-category-template
   "Delete a BRE category template
-  If cascade = 'detach', it will force delete the template even if it's attached to other objects"
+  If cascade = 'detach', it will force delete the template even if it's attached to other objects. <br><br><b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (delete-bre-category-template id nil))
   ([id optional-params]
    (:data (delete-bre-category-template-with-http-info id optional-params))))
 
 (defn get-bre-categories-with-http-info
-  "List categories"
+  "List categories
+  <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER"
   ([] (get-bre-categories-with-http-info nil))
   ([{:keys [size page ]}]
    (call-api "/bre/categories" :get
@@ -56,52 +57,58 @@
               :header-params {}
               :query-params  {"size" size "page" page }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-bre-categories
-  "List categories"
+  "List categories
+  <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER"
   ([] (get-bre-categories nil))
   ([optional-params]
    (:data (get-bre-categories-with-http-info optional-params))))
 
 (defn get-bre-category-with-http-info
-  "Get a single category"
+  "Get a single category
+  <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER"
   [name ]
   (call-api "/bre/categories/{name}" :get
             {:path-params   {"name" name }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-bre-category
-  "Get a single category"
+  "Get a single category
+  <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_USER"
   [name ]
   (:data (get-bre-category-with-http-info name)))
 
 (defn get-bre-category-template-with-http-info
-  "Get a single BRE category template"
+  "Get a single BRE category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN"
   [id ]
   (call-api "/bre/categories/templates/{id}" :get
             {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-bre-category-template
-  "Get a single BRE category template"
+  "Get a single BRE category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN"
   [id ]
   (:data (get-bre-category-template-with-http-info id)))
 
 (defn get-bre-category-templates-with-http-info
-  "List and search BRE category templates"
+  "List and search BRE category templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN"
   ([] (get-bre-category-templates-with-http-info nil))
   ([{:keys [size page order ]}]
    (call-api "/bre/categories/templates" :get
@@ -109,18 +116,20 @@
               :header-params {}
               :query-params  {"size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-bre-category-templates
-  "List and search BRE category templates"
+  "List and search BRE category templates
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN or BRE_RULE_ENGINE_CATEGORIES_ADMIN"
   ([] (get-bre-category-templates nil))
   ([optional-params]
    (:data (get-bre-category-templates-with-http-info optional-params))))
 
 (defn update-bre-category-with-http-info
-  "Update a category"
+  "Update a category
+  <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_ADMIN"
   ([name ] (update-bre-category-with-http-info name nil))
   ([name {:keys [category ]}]
    (call-api "/bre/categories/{name}" :put
@@ -134,13 +143,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-bre-category
-  "Update a category"
+  "Update a category
+  <b>Permissions Needed:</b> BRE_RULE_ENGINE_CATEGORIES_ADMIN"
   ([name ] (update-bre-category name nil))
   ([name optional-params]
    (:data (update-bre-category-with-http-info name optional-params))))
 
 (defn update-bre-category-template-with-http-info
-  "Update a BRE category template"
+  "Update a BRE category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-bre-category-template-with-http-info id nil))
   ([id {:keys [template ]}]
    (call-api "/bre/categories/templates/{id}" :put
@@ -154,7 +165,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-bre-category-template
-  "Update a BRE category template"
+  "Update a BRE category template
+  <b>Permissions Needed:</b> TEMPLATE_ADMIN"
   ([id ] (update-bre-category-template id nil))
   ([id optional-params]
    (:data (update-bre-category-template-with-http-info id optional-params))))

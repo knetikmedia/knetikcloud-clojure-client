@@ -6,7 +6,7 @@
 
 (defn verify-apple-receipt-with-http-info
   "Pay invoice with Apple receipt
-  Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful."
+  Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful. <br><br><b>Permissions Needed:</b> ANY"
   ([] (verify-apple-receipt-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/apple/receipt" :post
@@ -21,7 +21,7 @@
 
 (defn verify-apple-receipt
   "Pay invoice with Apple receipt
-  Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful."
+  Mark an invoice paid using Apple payment receipt. A receipt will only be accepted once and the details of the transaction must match the invoice, including the product_id matching the sku text of the item in the invoice. Returns the transaction ID if successful. <br><br><b>Permissions Needed:</b> ANY"
   ([] (verify-apple-receipt nil))
   ([optional-params]
    (:data (verify-apple-receipt-with-http-info optional-params))))

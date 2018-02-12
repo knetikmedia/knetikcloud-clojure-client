@@ -5,7 +5,8 @@
   (:import (java.io File)))
 
 (defn create-permission-with-http-info
-  "Create a new permission"
+  "Create a new permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([] (create-permission-with-http-info nil))
   ([{:keys [permission-resource ]}]
    (call-api "/auth/permissions" :post
@@ -19,13 +20,15 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-permission
-  "Create a new permission"
+  "Create a new permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([] (create-permission nil))
   ([optional-params]
    (:data (create-permission-with-http-info optional-params))))
 
 (defn delete-permission-with-http-info
-  "Delete a permission"
+  "Delete a permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([permission ] (delete-permission-with-http-info permission nil))
   ([permission {:keys [force ]}]
    (call-api "/auth/permissions/{permission}" :delete
@@ -33,35 +36,39 @@
               :header-params {}
               :query-params  {"force" force }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn delete-permission
-  "Delete a permission"
+  "Delete a permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([permission ] (delete-permission permission nil))
   ([permission optional-params]
    (:data (delete-permission-with-http-info permission optional-params))))
 
 (defn get-permission-with-http-info
-  "Get a single permission"
+  "Get a single permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   [permission ]
   (call-api "/auth/permissions/{permission}" :get
             {:path-params   {"permission" permission }
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :content-types ["application/json"]
+             :content-types []
              :accepts       ["application/json"]
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn get-permission
-  "Get a single permission"
+  "Get a single permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   [permission ]
   (:data (get-permission-with-http-info permission)))
 
 (defn get-permissions-with-http-info
-  "List and search permissions"
+  "List and search permissions
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([] (get-permissions-with-http-info nil))
   ([{:keys [size page order ]}]
    (call-api "/auth/permissions" :get
@@ -69,18 +76,20 @@
               :header-params {}
               :query-params  {"size" size "page" page "order" order }
               :form-params   {}
-              :content-types ["application/json"]
+              :content-types []
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-permissions
-  "List and search permissions"
+  "List and search permissions
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([] (get-permissions nil))
   ([optional-params]
    (:data (get-permissions-with-http-info optional-params))))
 
 (defn update-permission-with-http-info
-  "Update a permission"
+  "Update a permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([permission ] (update-permission-with-http-info permission nil))
   ([permission {:keys [permission-resource ]}]
    (call-api "/auth/permissions/{permission}" :put
@@ -94,7 +103,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn update-permission
-  "Update a permission"
+  "Update a permission
+  <b>Permissions Needed:</b> PERMISSIONS_ADMIN"
   ([permission ] (update-permission permission nil))
   ([permission optional-params]
    (:data (update-permission-with-http-info permission optional-params))))

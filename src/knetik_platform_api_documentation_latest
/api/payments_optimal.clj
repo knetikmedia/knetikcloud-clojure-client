@@ -6,7 +6,7 @@
 
 (defn silent-post-optimal-with-http-info
   "Initiate silent post with Optimal
-  Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details."
+  Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. <br><br><b>Permissions Needed:</b> OPTIMAL_ADMIN or owner"
   ([] (silent-post-optimal-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/optimal/silent" :post
@@ -21,7 +21,7 @@
 
 (defn silent-post-optimal
   "Initiate silent post with Optimal
-  Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details."
+  Will return the url for a hosted payment endpoint to post to. See Optimal documentation for details. <br><br><b>Permissions Needed:</b> OPTIMAL_ADMIN or owner"
   ([] (silent-post-optimal nil))
   ([optional-params]
    (:data (silent-post-optimal-with-http-info optional-params))))

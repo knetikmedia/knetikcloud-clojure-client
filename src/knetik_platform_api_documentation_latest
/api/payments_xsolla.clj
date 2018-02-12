@@ -5,7 +5,8 @@
   (:import (java.io File)))
 
 (defn create-xsolla-token-url-with-http-info
-  "Create a payment token that should be used to forward the user to Xsolla so they can complete payment"
+  "Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+  <b>Permissions Needed:</b> XSOLLA_ADMIN or owner"
   ([] (create-xsolla-token-url-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/xsolla/payment" :post
@@ -19,7 +20,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn create-xsolla-token-url
-  "Create a payment token that should be used to forward the user to Xsolla so they can complete payment"
+  "Create a payment token that should be used to forward the user to Xsolla so they can complete payment
+  <b>Permissions Needed:</b> XSOLLA_ADMIN or owner"
   ([] (create-xsolla-token-url nil))
   ([optional-params]
    (:data (create-xsolla-token-url-with-http-info optional-params))))

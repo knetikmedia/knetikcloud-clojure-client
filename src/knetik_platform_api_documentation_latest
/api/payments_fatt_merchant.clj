@@ -6,7 +6,7 @@
 
 (defn create-or-update-fatt-merchant-payment-method-with-http-info
   "Create or update a FattMerchant payment method for a user
-  Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints."
+  Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. <br><br><b>Permissions Needed:</b> FATTMERCHANT_ADMIN or owner"
   ([] (create-or-update-fatt-merchant-payment-method-with-http-info nil))
   ([{:keys [request ]}]
    (call-api "/payment/provider/fattmerchant/payment-methods" :put
@@ -21,7 +21,7 @@
 
 (defn create-or-update-fatt-merchant-payment-method
   "Create or update a FattMerchant payment method for a user
-  Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints."
+  Stores customer information and creates a payment method that can be used to pay invoices through the payments endpoints. <br><br><b>Permissions Needed:</b> FATTMERCHANT_ADMIN or owner"
   ([] (create-or-update-fatt-merchant-payment-method nil))
   ([optional-params]
    (:data (create-or-update-fatt-merchant-payment-method-with-http-info optional-params))))

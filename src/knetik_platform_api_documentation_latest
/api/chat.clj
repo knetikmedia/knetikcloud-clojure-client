@@ -227,10 +227,10 @@
   [blacklisted-user-id id ]
   (:data (remove-chat-blacklist-with-http-info blacklisted-user-id id)))
 
-(defn send-message-with-http-info
+(defn send-chat-message-with-http-info
   "Send a message
   <b>Permissions Needed:</b> ANY"
-  ([] (send-message-with-http-info nil))
+  ([] (send-chat-message-with-http-info nil))
   ([{:keys [chat-message-resource ]}]
    (call-api "/chat/messages" :post
              {:path-params   {}
@@ -242,10 +242,10 @@
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
-(defn send-message
+(defn send-chat-message
   "Send a message
   <b>Permissions Needed:</b> ANY"
-  ([] (send-message nil))
+  ([] (send-chat-message nil))
   ([optional-params]
-   (:data (send-message-with-http-info optional-params))))
+   (:data (send-chat-message-with-http-info optional-params))))
 

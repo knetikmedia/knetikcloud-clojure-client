@@ -14,7 +14,7 @@
 
 (def default-api-context
   "Default API context."
-  {:base-url        "https://sandbox.knetikcloud.com"
+  {:base-url        "https://jsapi-integration.us-east-1.elasticbeanstalk.com"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :debug           false

@@ -174,7 +174,7 @@
 
 (defn get-activity-occurrence-details-with-http-info
   "Load a single activity occurrence details
-  <b>Permissions Needed:</b> ACTIVITIES_ADMIN"
+  <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN"
   [activity-occurrence-id ]
   (call-api "/activity-occurrences/{activity_occurrence_id}" :get
             {:path-params   {"activity_occurrence_id" activity-occurrence-id }
@@ -187,7 +187,7 @@
 
 (defn get-activity-occurrence-details
   "Load a single activity occurrence details
-  <b>Permissions Needed:</b> ACTIVITIES_ADMIN"
+  <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN"
   [activity-occurrence-id ]
   (:data (get-activity-occurrence-details-with-http-info activity-occurrence-id)))
 
@@ -233,7 +233,7 @@
 
 (defn list-activity-occurrences-with-http-info
   "List activity occurrences
-  <b>Permissions Needed:</b> ACTIVITIES_ADMIN"
+  <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN"
   ([] (list-activity-occurrences-with-http-info nil))
   ([{:keys [filter-activity filter-status filter-event filter-challenge size page order ]}]
    (call-api "/activity-occurrences" :get
@@ -247,7 +247,7 @@
 
 (defn list-activity-occurrences
   "List activity occurrences
-  <b>Permissions Needed:</b> ACTIVITIES_ADMIN"
+  <b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN"
   ([] (list-activity-occurrences nil))
   ([optional-params]
    (:data (list-activity-occurrences-with-http-info optional-params))))
@@ -273,7 +273,7 @@
 
 (defn set-activity-occurrence-results-with-http-info
   "Sets the status of an activity occurrence to FINISHED and logs metrics
-  In addition to user permissions requirements there is security based on the core_settings.results_trust setting."
+  In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN"
   ([activity-occurrence-id ] (set-activity-occurrence-results-with-http-info activity-occurrence-id nil))
   ([activity-occurrence-id {:keys [activity-occurrence-results ]}]
    (call-api "/activity-occurrences/{activity_occurrence_id}/results" :post
@@ -288,13 +288,14 @@
 
 (defn set-activity-occurrence-results
   "Sets the status of an activity occurrence to FINISHED and logs metrics
-  In addition to user permissions requirements there is security based on the core_settings.results_trust setting."
+  In addition to user permissions requirements there is security based on the core_settings.results_trust setting. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER or ACTIVITIES_ADMIN"
   ([activity-occurrence-id ] (set-activity-occurrence-results activity-occurrence-id nil))
   ([activity-occurrence-id optional-params]
    (:data (set-activity-occurrence-results-with-http-info activity-occurrence-id optional-params))))
 
 (defn set-activity-occurrence-settings-with-http-info
-  "Sets the settings of an activity occurrence"
+  "Sets the settings of an activity occurrence
+  <b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN"
   ([activity-occurrence-id ] (set-activity-occurrence-settings-with-http-info activity-occurrence-id nil))
   ([activity-occurrence-id {:keys [settings ]}]
    (call-api "/activity-occurrences/{activity_occurrence_id}/settings" :put
@@ -308,7 +309,8 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn set-activity-occurrence-settings
-  "Sets the settings of an activity occurrence"
+  "Sets the settings of an activity occurrence
+  <b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN"
   ([activity-occurrence-id ] (set-activity-occurrence-settings activity-occurrence-id nil))
   ([activity-occurrence-id optional-params]
    (:data (set-activity-occurrence-settings-with-http-info activity-occurrence-id optional-params))))
@@ -357,7 +359,7 @@
 
 (defn update-activity-occurrence-status-with-http-info
   "Update the status of an activity occurrence
-  If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true"
+  If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN"
   ([activity-occurrence-id ] (update-activity-occurrence-status-with-http-info activity-occurrence-id nil))
   ([activity-occurrence-id {:keys [activity-occurrence-status ]}]
    (call-api "/activity-occurrences/{activity_occurrence_id}/status" :put
@@ -372,7 +374,7 @@
 
 (defn update-activity-occurrence-status
   "Update the status of an activity occurrence
-  If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true"
+  If setting to 'FINISHED' reward will be run based on current metrics that have been recorded already. Alternatively, see results endpoint to finish and record all metrics at once. Can be called by non-host participants if non_host_status_control is true. <br><br><b>Permissions Needed:</b> ACTIVITIES_USER and host or ACTIVITIES_ADMIN"
   ([activity-occurrence-id ] (update-activity-occurrence-status activity-occurrence-id nil))
   ([activity-occurrence-id optional-params]
    (:data (update-activity-occurrence-status-with-http-info activity-occurrence-id optional-params))))

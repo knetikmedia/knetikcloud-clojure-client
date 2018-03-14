@@ -72,7 +72,7 @@
   <b>Permissions Needed:</b> ANY"
   ([recipient-id ] (get-direct-messages1-with-http-info recipient-id nil))
   ([recipient-id {:keys [size page ]}]
-   (call-api "/users/users/{recipient_id}/messages" :get
+   (call-api "/users/{recipient_id}/messages" :get
              {:path-params   {"recipient_id" recipient-id }
               :header-params {}
               :query-params  {"size" size "page" page }

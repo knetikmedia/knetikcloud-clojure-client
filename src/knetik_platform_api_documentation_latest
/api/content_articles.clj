@@ -48,6 +48,28 @@
   ([optional-params]
    (:data (create-article-template-with-http-info optional-params))))
 
+(defn create-template-with-http-info
+  "Create a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint ] (create-template-with-http-info type-hint nil))
+  ([type-hint {:keys [template ]}]
+   (call-api "/templates/{type_hint}" :post
+             {:path-params   {"type_hint" type-hint }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    template
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn create-template
+  "Create a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint ] (create-template type-hint nil))
+  ([type-hint optional-params]
+   (:data (create-template-with-http-info type-hint optional-params))))
+
 (defn delete-article-with-http-info
   "Delete an existing article
   <b>Permissions Needed:</b> ARTICLES_ADMIN"
@@ -87,6 +109,28 @@
   ([id ] (delete-article-template id nil))
   ([id optional-params]
    (:data (delete-article-template-with-http-info id optional-params))))
+
+(defn delete-template-with-http-info
+  "Delete a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint id ] (delete-template-with-http-info type-hint id nil))
+  ([type-hint id {:keys [cascade ]}]
+   (call-api "/templates/{type_hint}/{id}" :delete
+             {:path-params   {"type_hint" type-hint "id" id }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    cascade
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn delete-template
+  "Delete a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint id ] (delete-template type-hint id nil))
+  ([type-hint id optional-params]
+   (:data (delete-template-with-http-info type-hint id optional-params))))
 
 (defn get-article-with-http-info
   "Get a single article
@@ -168,6 +212,46 @@
   ([optional-params]
    (:data (get-articles-with-http-info optional-params))))
 
+(defn get-template-with-http-info
+  "Get a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  [type-hint id ]
+  (call-api "/templates/{type_hint}/{id}" :get
+            {:path-params   {"type_hint" type-hint "id" id }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
+
+(defn get-template
+  "Get a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  [type-hint id ]
+  (:data (get-template-with-http-info type-hint id)))
+
+(defn get-templates-with-http-info
+  "List and search templates
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint ] (get-templates-with-http-info type-hint nil))
+  ([type-hint {:keys [size page order ]}]
+   (call-api "/templates/{type_hint}" :get
+             {:path-params   {"type_hint" type-hint }
+              :header-params {}
+              :query-params  {"size" size "page" page "order" order }
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn get-templates
+  "List and search templates
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint ] (get-templates type-hint nil))
+  ([type-hint optional-params]
+   (:data (get-templates-with-http-info type-hint optional-params))))
+
 (defn update-article-with-http-info
   "Update an existing article
   <b>Permissions Needed:</b> ARTICLES_ADMIN"
@@ -211,4 +295,48 @@
   ([id ] (update-article-template id nil))
   ([id optional-params]
    (:data (update-article-template-with-http-info id optional-params))))
+
+(defn update-template-with-http-info
+  "Update a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint id ] (update-template-with-http-info type-hint id nil))
+  ([type-hint id {:keys [template ]}]
+   (call-api "/templates/{type_hint}/{id}" :put
+             {:path-params   {"type_hint" type-hint "id" id }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    template
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn update-template
+  "Update a template
+  <b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint id ] (update-template type-hint id nil))
+  ([type-hint id optional-params]
+   (:data (update-template-with-http-info type-hint id optional-params))))
+
+(defn validate-with-http-info
+  "Validate a templated resource
+  Error code thrown if invalid.<br><br><b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint ] (validate-with-http-info type-hint nil))
+  ([type-hint {:keys [resource ]}]
+   (call-api "/templates/{type_hint}/validate" :post
+             {:path-params   {"type_hint" type-hint }
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    resource
+              :content-types ["application/json"]
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
+
+(defn validate
+  "Validate a templated resource
+  Error code thrown if invalid.<br><br><b>Permissions Needed:</b> TEMPLATES_ADMIN"
+  ([type-hint ] (validate type-hint nil))
+  ([type-hint optional-params]
+   (:data (validate-with-http-info type-hint optional-params))))
 

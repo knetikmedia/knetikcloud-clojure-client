@@ -91,11 +91,11 @@
   "Returns a page of flag reports
   Context can be either a free-form string or a pre-defined context name. <br><br><b>Permissions Needed:</b> MODERATION_ADMIN"
   ([] (get-moderation-reports-with-http-info nil))
-  ([{:keys [exclude-resolved filter-context filter-context-id size page ]}]
+  ([{:keys [exclude-resolved filter-context filter-context-id size page order ]}]
    (call-api "/moderation/reports" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"exclude_resolved" exclude-resolved "filter_context" filter-context "filter_context_id" filter-context-id "size" size "page" page }
+              :query-params  {"exclude_resolved" exclude-resolved "filter_context" filter-context "filter_context_id" filter-context-id "size" size "page" page "order" order }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]

@@ -172,7 +172,8 @@
    (:data (delete-group-template-with-http-info id optional-params))))
 
 (defn disable-group-notification-with-http-info
-  "Enable or disable notification of group messages"
+  "Enable or disable notification of group messages
+  <b>Permissions Needed:</b> TOPICS_ADMIN or self"
   [unique-name user-id disabled ]
   (call-api "/users/groups/{unique_name}/members/{user_id}/messages/disabled" :put
             {:path-params   {"unique_name" unique-name "user_id" user-id }
@@ -185,7 +186,8 @@
              :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]}))
 
 (defn disable-group-notification
-  "Enable or disable notification of group messages"
+  "Enable or disable notification of group messages
+  <b>Permissions Needed:</b> TOPICS_ADMIN or self"
   [unique-name user-id disabled ]
   (:data (disable-group-notification-with-http-info unique-name user-id disabled)))
 

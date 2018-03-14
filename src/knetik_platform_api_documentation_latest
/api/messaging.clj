@@ -50,7 +50,7 @@
 
 (defn delete-message-template-with-http-info
   "Delete an existing message template
-  <b>Permissions Needed:</b> ARTICLES_ADMIN"
+  <b>Permissions Needed:</b> MESSAGING_ADMIN"
   [id ]
   (call-api "/messaging/templates/{id}" :delete
             {:path-params   {"id" id }
@@ -63,13 +63,13 @@
 
 (defn delete-message-template
   "Delete an existing message template
-  <b>Permissions Needed:</b> ARTICLES_ADMIN"
+  <b>Permissions Needed:</b> MESSAGING_ADMIN"
   [id ]
   (:data (delete-message-template-with-http-info id)))
 
 (defn get-message-template-with-http-info
   "Get a single message template
-  <b>Permissions Needed:</b> ARTICLES_ADMIN"
+  <b>Permissions Needed:</b> MESSAGING_ADMIN"
   [id ]
   (call-api "/messaging/templates/{id}" :get
             {:path-params   {"id" id }
@@ -82,13 +82,13 @@
 
 (defn get-message-template
   "Get a single message template
-  <b>Permissions Needed:</b> ARTICLES_ADMIN"
+  <b>Permissions Needed:</b> MESSAGING_ADMIN"
   [id ]
   (:data (get-message-template-with-http-info id)))
 
 (defn get-message-templates-with-http-info
   "List and search message templates
-  Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN"
+  Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN"
   ([] (get-message-templates-with-http-info nil))
   ([{:keys [filter-tagset filter-tag-intersection filter-tag-exclusion size page order ]}]
    (call-api "/messaging/templates" :get
@@ -102,15 +102,15 @@
 
 (defn get-message-templates
   "List and search message templates
-  Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> ARTICLES_ADMIN"
+  Get a list of message templates with optional filtering. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN"
   ([] (get-message-templates nil))
   ([optional-params]
    (:data (get-message-templates-with-http-info optional-params))))
 
-(defn send-message1-with-http-info
+(defn send-message-with-http-info
   "Send a message
   Sends a message with one or more formats to one or more users. Fill in any message formats desired (email, sms, websockets) and each user will recieve all valid formats. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN"
-  ([] (send-message1-with-http-info nil))
+  ([] (send-message-with-http-info nil))
   ([{:keys [message-resource ]}]
    (call-api "/messaging/message" :post
              {:path-params   {}
@@ -122,12 +122,12 @@
               :accepts       ["application/json"]
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
-(defn send-message1
+(defn send-message
   "Send a message
   Sends a message with one or more formats to one or more users. Fill in any message formats desired (email, sms, websockets) and each user will recieve all valid formats. <br><br><b>Permissions Needed:</b> MESSAGING_ADMIN"
-  ([] (send-message1 nil))
+  ([] (send-message nil))
   ([optional-params]
-   (:data (send-message1-with-http-info optional-params))))
+   (:data (send-message-with-http-info optional-params))))
 
 (defn send-raw-email-with-http-info
   "Send a raw email to one or more users
@@ -285,7 +285,7 @@
 
 (defn update-message-template-with-http-info
   "Update an existing message template
-  <b>Permissions Needed:</b> ARTICLES_ADMIN"
+  <b>Permissions Needed:</b> MESSAGING_ADMIN"
   ([id ] (update-message-template-with-http-info id nil))
   ([id {:keys [message-template-resource ]}]
    (call-api "/messaging/templates/{id}" :put
@@ -300,7 +300,7 @@
 
 (defn update-message-template
   "Update an existing message template
-  <b>Permissions Needed:</b> ARTICLES_ADMIN"
+  <b>Permissions Needed:</b> MESSAGING_ADMIN"
   ([id ] (update-message-template id nil))
   ([id optional-params]
    (:data (update-message-template-with-http-info id optional-params))))

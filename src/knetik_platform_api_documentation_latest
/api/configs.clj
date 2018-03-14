@@ -6,7 +6,7 @@
 
 (defn create-config-with-http-info
   "Create a new config
-  <b>Permissions Needed:</b> TOPICS_ADMIN"
+  <b>Permissions Needed:</b> CONFIGS_ADMIN"
   ([] (create-config-with-http-info nil))
   ([{:keys [config ]}]
    (call-api "/configs" :post
@@ -21,7 +21,7 @@
 
 (defn create-config
   "Create a new config
-  <b>Permissions Needed:</b> TOPICS_ADMIN"
+  <b>Permissions Needed:</b> CONFIGS_ADMIN"
   ([] (create-config nil))
   ([optional-params]
    (:data (create-config-with-http-info optional-params))))

@@ -1,5 +1,5 @@
 (ns knetik-platform-api-documentation-latest
-.api.bre-rule-engine-expressions
+.api.rule-engine-expressions
   (:require [knetik-platform-api-documentation-latest
 .core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
@@ -24,7 +24,7 @@
   (:data (get-bre-expression-with-http-info type)))
 
 (defn get-bre-expressions-with-http-info
-  "Get a list of supported expressions to use in conditions or actions
+  "Get a list of supported expressions to use in conditions or actions.
   Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER"
   ([] (get-bre-expressions-with-http-info nil))
   ([{:keys [filter-type-group ]}]
@@ -38,7 +38,7 @@
               :auth-names    ["oauth2_client_credentials_grant" "oauth2_password_grant"]})))
 
 (defn get-bre-expressions
-  "Get a list of supported expressions to use in conditions or actions
+  "Get a list of supported expressions to use in conditions or actions.
   Each resource contains a type and a definition that are read-only, all the other fields must be provided when using the expression in a rule. <br><br><b>Permissions Needed:</b> BRE_RULE_ENGINE_EXPRESSIONS_USER"
   ([] (get-bre-expressions nil))
   ([optional-params]

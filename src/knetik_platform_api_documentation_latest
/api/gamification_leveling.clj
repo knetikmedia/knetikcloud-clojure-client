@@ -47,7 +47,7 @@
 
 (defn get-level-with-http-info
   "Retrieve a level
-  <b>Permissions Needed:</b> LEVELING_ADMIN"
+  <b>Permissions Needed:</b> LEVELING_USER"
   [name ]
   (call-api "/leveling/{name}" :get
             {:path-params   {"name" name }
@@ -60,7 +60,7 @@
 
 (defn get-level
   "Retrieve a level
-  <b>Permissions Needed:</b> LEVELING_ADMIN"
+  <b>Permissions Needed:</b> LEVELING_USER"
   [name ]
   (:data (get-level-with-http-info name)))
 
@@ -85,7 +85,7 @@
 
 (defn get-levels-with-http-info
   "List and search levels
-  Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN"
+  Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_USER"
   ([] (get-levels-with-http-info nil))
   ([{:keys [filter-name size page order ]}]
    (call-api "/leveling" :get
@@ -99,14 +99,14 @@
 
 (defn get-levels
   "List and search levels
-  Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN"
+  Get a list of levels schemas with optional filtering. <br><br><b>Permissions Needed:</b> LEVELING_USER"
   ([] (get-levels nil))
   ([optional-params]
    (:data (get-levels-with-http-info optional-params))))
 
 (defn get-user-level-with-http-info
   "Get a user's progress for a given level schema
-  <b>Permissions Needed:</b> LEVELING_ADMIN or self"
+  <b>Permissions Needed:</b> LEVELING_USER or self"
   [user-id name ]
   (call-api "/users/{user_id}/leveling/{name}" :get
             {:path-params   {"user_id" user-id "name" name }
@@ -119,13 +119,13 @@
 
 (defn get-user-level
   "Get a user's progress for a given level schema
-  <b>Permissions Needed:</b> LEVELING_ADMIN or self"
+  <b>Permissions Needed:</b> LEVELING_USER or self"
   [user-id name ]
   (:data (get-user-level-with-http-info user-id name)))
 
 (defn get-user-levels-with-http-info
   "Get a user's progress for all level schemas
-  Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self"
+  Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_USER or self"
   ([user-id ] (get-user-levels-with-http-info user-id nil))
   ([user-id {:keys [filter-name size page order ]}]
    (call-api "/users/{user_id}/leveling" :get
@@ -139,7 +139,7 @@
 
 (defn get-user-levels
   "Get a user's progress for all level schemas
-  Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_ADMIN or self"
+  Filtering and sorting is based on the LevelingResource object, not the UserLevelingResource that is returned here. <br><br><b>Permissions Needed:</b> LEVELING_USER or self"
   ([user-id ] (get-user-levels user-id nil))
   ([user-id optional-params]
    (:data (get-user-levels-with-http-info user-id optional-params))))

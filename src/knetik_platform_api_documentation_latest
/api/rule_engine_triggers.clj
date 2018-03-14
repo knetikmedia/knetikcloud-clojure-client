@@ -1,5 +1,5 @@
 (ns knetik-platform-api-documentation-latest
-.api.bre-rule-engine-triggers
+.api.rule-engine-triggers
   (:require [knetik-platform-api-documentation-latest
 .core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
